@@ -1,0 +1,324 @@
+body{
+    width: 6.4rem;
+    height: 6.4rem;
+    /*overflow-x: hidden;*/
+    margin: 0;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+table{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+table strong{
+    font-size: 0.22rem;
+    font-weight: 600;
+}
+table font p{
+    font-size: 0.35rem;
+    font-weight: 600;
+}
+table font p:nth-child(2){
+    font-size: 0.3rem;
+    font-weight: 500;
+}
+.title {
+    FONT-SIZE: 0.18rem;
+    FONT-FAMILY: "黑体";
+}
+.xtable{
+    width: 100%;
+}
+.wtable{
+    width: 100%;
+}
+TD {
+    FONT-SIZE: 0.11rem;
+}
+.boxBorder{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+
+}
+.small {
+    FONT-SIZE: 0.09rem;
+}
+
+a:link {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF0000;
+    text-decoration: underline;
+}
+
+.table {
+    BORDER-RIGHT: #000000 0px;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 0px;
+    width: 100%;
+    margin: 0 auto;
+}
+.table.explain{
+    width: 5.9rem;
+}
+.table.six{
+    width: 5.9rem;
+}
+.td {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #ffffff 0px;
+    FONT-SIZE: 0.14rem;
+    BORDER-LEFT: #ffffff 0px;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.td2 {
+    BORDER-RIGHT: #ffffff 0px;
+    BORDER-TOP: #ffffff 0px;
+    FONT-SIZE: 0.14rem;
+    BORDER-LEFT: #ffffff 0px;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.NOPRINT {
+    FONT-SIZE: 0.09rem;
+    FONT-FAMILY: "宋体"
+}
+
+.wtable {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.lineone {
+    BORDER-RIGHT: #ffffff 0px;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #ffffff 0px;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.lineone1 {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #ffffff 0px;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.three {
+    BORDER-RIGHT: #ffffff 0px;
+    BORDER-TOP: #000000 1px solid;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid
+}
+
+.right {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #ffffff 0px;
+    BORDER-LEFT: #ffffff 0px;
+    BORDER-BOTTOM: #ffffff 0px
+}
+
+.leftright {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #ffffff 0px;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #ffffff 0px
+}
+
+.xtable {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #ffffff 0px;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid
+}
+.dataLine{
+    width: 6.16rem;
+    margin: 0rem auto;
+    float: left;
+
+}
+.dataLine ul{
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.dataLine li{
+    width: 2.3rem;
+    float: left;
+    margin: 0;
+    list-style: none;
+    background-image: url("big.png");
+    background-size: cover;
+    margin: 0.3rem 0.6rem 0.15rem 0.1rem;
+    position: relative;
+    height: 1.2rem;
+    font-size: 0.08rem;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 0.16rem;
+    background-color: #000;
+}
+.dataLine li .abnormal_min{
+    position: absolute;
+    top: 1.05rem;
+    left: 2.35rem;
+    color: red;
+}
+.dataLine li .normal_min{
+    position: absolute;
+    left: 2.35rem;
+    top: 0.7rem;
+    color: lawngreen;
+
+}
+.dataLine li .normal_max{
+    position: absolute;
+    left: 2.35rem;
+    top: 0.3rem;
+    color: lawngreen;
+}
+.dataLine li .abnormal_max{
+    position: absolute;
+    left: 2.35rem;
+    top: -0.05rem;
+    color: red;
+
+}
+.dataLine li .reality{
+    position: absolute;
+    left: 2.35rem;;
+    top: 0.5rem;
+    color: blue;
+}
+.dataLine li .name{
+    position: absolute;
+    top: -0.2rem;
+    left: 0;
+    width: 100%;
+    font-size: 0.12rem;
+    text-align: center;
+}
+.dataLine li .result{
+    position: absolute;
+    top: -0.2rem;
+    left: 0;
+    text-align: right;
+    width: 100%;
+    font-size: 0.12rem;
+
+}
+.dataLine li .canvas{
+    width: 2.3rem;
+    height: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#box{
+    position: absolute;
+    left: 0;
+    background-color: black;
+    z-index: 999;
+    display: none;
+    background: #fff;
+    background-color: #000;
+    padding: 0 1.2rem;
+    box-sizing: border-box;
+    width: 6.4rem;
+    height: 11.36rem;
+}
+#box .container{
+    width: 4rem;
+    height: 8.34rem;
+    background: url("big.png") no-repeat;
+    background-color: #000000;
+    background-size: cover;
+    position: relative;
+}
+#box .container .bigCanvas{
+    width: 4rem;
+    height: 8.34rem;
+}
+#box .container .bigName{
+    transform-origin: right bottom;
+    position: absolute;
+    right: -0.1rem;
+    top: 4.5rem;
+    transform: rotate(90deg);
+    font-size: 0.35rem;
+    color: #fff;
+}
+#box .bigNormal_min{
+    color: lawngreen;
+    font-size: 0.35rem;
+    transform: rotate(90deg);
+    position: absolute;
+    right: 2.094rem;
+    top: 8.95rem;
+    width: 1.3rem;
+}
+#box .bigNormal_max{
+    color: lawngreen;
+    position: absolute;
+    right: 0.69rem;
+    top: 8.95rem;
+    font-size: 0.35rem;
+    transform: rotate(90deg);
+    width: 1.3rem;
+}
+#box .bigAbnormal_min{
+    position: absolute;
+    transform: rotate(90deg);
+    right: 3.19rem;
+    top: 8.95rem;
+    color: red;
+    font-size: 0.35rem;
+    width: 1.3rem;
+}
+#box .bigAbnormal_max{
+    position: absolute;
+    transform: rotate(90deg);
+    right: -0.48rem;
+    top: 8.95rem;
+    color: red;
+    font-size: 0.35rem;
+    width: 1.3rem;
+}
+#box .bigReality{
+    position: absolute;
+    transform: rotate(90deg);
+    top: 8.95rem;
+    font-size: 0.35rem;
+    width: 1.3rem;
+}
+#box .bigResult{
+    transform-origin: right bottom;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 8rem;
+    font-size: 0.35rem;
+    right: -0.05rem;
+
+}

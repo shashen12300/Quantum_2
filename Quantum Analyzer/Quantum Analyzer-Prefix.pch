@@ -1,0 +1,24 @@
+//
+//  Quantum Analyzer-Prefix.pch
+//  Quantum Analyzer
+//
+//  Created by 宋冲冲 on 2016/12/4.
+//  Copyright © 2016年 宋冲冲. All rights reserved.
+//
+
+#ifndef Quantum_Analyzer_Prefix_pch
+#define Quantum_Analyzer_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "MacroDefine.h"
+#import "SystemConfig.h"
+#import "DocumentFile.h"
+#import "UIViewController+KeyboardAnimation.h"
+#import "CommonCore.h"
+#import <MJRefresh.h>
+#import "Person.h"
+#import "DataBase.h"
+
+#endif /* Quantum_Analyzer_Prefix_pch */

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>量子检测综合报告单</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type ;>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+              recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = (clientWidth >= 640 ? 100 : clientWidth / 6.4) + 'px';
+              };
+
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+  </script>
+<STYLE>.title {
+	FONT-SIZE: 0.18rem; FONT-FAMILY: "黑体";
+}
+font{
+  font-size: 0.35rem;
+  font-weight: 600;
+}
+font strong{
+    font-size: 0.22rem;
+    font-weight: 600;
+}
+TD {
+	FONT-SIZE: 0.11rem;
+}
+.small {
+	FONT-SIZE: 0.09rem;
+}
+A:link {
+	TEXT-DECORATION: none; COLOR: #000000
+}
+A:visited {
+	TEXT-DECORATION: none; COLOR: #000000
+}
+A:hover {
+	TEXT-DECORATION: underline; COLOR: #ff0000
+}
+.table {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 0px; BORDER-BOTTOM: #000000 0px; BORDER-LEFT: #000000 1px solid
+}
+.td {
+	FONT-SIZE: 0.14rem; BORDER-TOP: #ffffff 0px; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #ffffff 0px
+}
+.td2 {
+	FONT-SIZE: 0.14rem; BORDER-TOP: #ffffff 0px; BORDER-RIGHT: #ffffff 0px; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #ffffff 0px
+}
+.NOPRINT {
+	FONT-SIZE: 0.09rem; FONT-FAMILY: "宋体"
+}
+.wtable {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid
+}
+.lineone {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #ffffff 0px; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #ffffff 0px
+}
+.lineone1 {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #ffffff 0px
+}
+.three {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #ffffff 0px; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid
+}
+.right {
+	BORDER-TOP: #ffffff 0px; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #ffffff 0px; BORDER-LEFT: #ffffff 0px
+}
+.leftright {
+	BORDER-TOP: #ffffff 0px; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #ffffff 0px; BORDER-LEFT: #000000 1px solid
+}
+.xtable {
+	BORDER-TOP: #ffffff 0px; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid
+}
+  table{
+    width: 5.9rem;
+  }
+  .bigTable{
+    width: 6rem;
+  }
+.detail {
+    width: 2.5rem;
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 11.00.10586.420"></HEAD>
+<BODY style="BACKGROUND: url(bgimage.gif) center 50%">
+<TABLE cellSpacing=4 cellPadding=0 class="bigTable" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3 align=center><FONT size=6 face=黑体>量子检测综合报告单</FONT></TD></TR>
+  <TR>
+    <TD width="100%" colSpan=3>
+      <HR color=#ff9933 SIZE=2>
+    </TD></TR>
+  <tr>
+    <td width="30%">姓名:{{name}}</td>
+    <td width="30%" align="center">性别 : {{sex}}</td>
+    <td width="30%" align="center">年龄:{{age}}</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <table width="100%" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+          <td width="50%" align="left">体形:{{health}}体重({{stature}}cm，{{weight}}kg)</td>
+          <td width="50%" align="right">检测时间:{{time}}</td>
+        </tr></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD width="100%" colSpan=3>
+      <HR color=#ff9933 SIZE=2>
+    </TD></TR></TBODY></TABLE>
+
+  {{table}}
+  
+<TABLE cellSpacing=0 cellPadding=0  align=center border=0>
+  <TBODY>
+  <TR>
+    <TD height=12></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 class="bigTable" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <HR color=#ff9933 SIZE=2>
+    </TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0  align=center border=0>
+  <TBODY>
+  <TR height=5>
+    <TD></TD></TR>
+  <TR align=right>
+    <TD colSpan=2>本检测结果仅供参考，不作为诊断结论。</TD></TR></TBODY></TABLE></BODY></HTML>

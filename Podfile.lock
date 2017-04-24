@@ -1,0 +1,32 @@
+PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - GRMustache (7.3.2):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0)
+  - Masonry (1.0.2)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - UIViewController+HUD (1.0.0):
+    - MBProgressHUD (~> 0.8)
+
+DEPENDENCIES:
+  - FMDB (~> 2.6.2)
+  - GRMustache
+  - Masonry (~> 1.0.2)
+  - MJRefresh (~> 3.1.0)
+  - UIViewController+HUD (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  UIViewController+HUD: 0e9e8b4d9f007a4c952acf97dae8669c62057b89
+
+PODFILE CHECKSUM: 25f0086d183304e77d3e753a775aa9afd61d29fe
+
+COCOAPODS: 1.1.1

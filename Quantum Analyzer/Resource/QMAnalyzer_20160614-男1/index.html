@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制曲线</title>
+    <style>
+        canvas{
+            background-image: url("background.png");
+            width: 371px;
+            height: auto;
+            background-size: cover;
+        }
+    </style>
+    <script>
+
+        function draw(a,color) {
+            var s=canvas.getContext("2d");
+            var g=canvas.getContext("2d");
+            //贝兹曲线
+            s.beginPath();
+            s.strokeStyle=color;
+            s.moveTo(0,174);
+            s.quadraticCurveTo(80,80,376,a);
+            s.stroke();
+        }
+
+    </script>
+</head>
+
+<body>
+<p>hello world</p>
+<canvas id="canvas" width="376" height="174" ></canvas>
+<script>
+    draw(20,"#FF00FF");
+    draw(50,"#9932CC");
+    draw(80,"#7FFF00");
+    draw(120,"#00F5FF");
+
+</script>
+
+
+</body>
+
+</html>

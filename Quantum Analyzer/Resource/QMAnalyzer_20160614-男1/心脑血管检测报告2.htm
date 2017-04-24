@@ -1,0 +1,734 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" ; content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>心脑血管检测报告</title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = (clientWidth >= 640 ? 100 : clientWidth / 6.4) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <STYLE>
+    body{
+        width: 6.4rem;
+        height: 6.4rem;
+        /*overflow-x: hidden;*/
+        margin: 0;
+        padding: 0.2rem;
+        box-sizing: border-box;
+    }
+    table{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    table strong{
+        font-size: 0.22rem;
+        font-weight: 600;
+    }
+    table font p{
+        font-size: 0.35rem;
+        font-weight: 600;
+    }
+    table font p:nth-child(2){
+        font-size: 0.3rem;
+        font-weight: 500;
+    }
+    .title {
+        FONT-SIZE: 0.18rem;
+        FONT-FAMILY: "黑体";
+    }
+    .xtable{
+        width: 100%;
+    }
+    .wtable{
+        width: 100%;
+    }
+    TD {
+        FONT-SIZE: 0.11rem;
+    }
+
+    .small {
+        FONT-SIZE: 0.09rem;
+    }
+
+    a:link {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #FF0000;
+        text-decoration: underline;
+    }
+
+    .table {
+        BORDER-RIGHT: #000000 0px;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 0px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .table.explain{
+        width: 5.9rem;
+    }
+    .table.six{
+        width: 5.9rem;
+    }
+    .td {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #ffffff 0px;
+        FONT-SIZE: 0.14rem;
+        BORDER-LEFT: #ffffff 0px;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .td2 {
+        BORDER-RIGHT: #ffffff 0px;
+        BORDER-TOP: #ffffff 0px;
+        FONT-SIZE: 0.14rem;
+        BORDER-LEFT: #ffffff 0px;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .NOPRINT {
+        FONT-SIZE: 0.09rem;
+        FONT-FAMILY: "宋体"
+    }
+
+    .wtable {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .lineone {
+        BORDER-RIGHT: #ffffff 0px;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #ffffff 0px;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .lineone1 {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #ffffff 0px;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .three {
+        BORDER-RIGHT: #ffffff 0px;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+
+    .right {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #ffffff 0px;
+        BORDER-LEFT: #ffffff 0px;
+        BORDER-BOTTOM: #ffffff 0px
+    }
+
+    .leftright {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #ffffff 0px;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #ffffff 0px
+    }
+
+    .xtable {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #ffffff 0px;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 1px solid
+    }
+    .dataLine{
+        width: 6.16rem;
+        margin: 0rem auto;
+        float: left;
+
+    }
+    .dataLine ul{
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .dataLine li{
+        width: 2.3rem;
+        float: left;
+        margin: 0;
+        list-style: none;
+        background-image: url("background.png");
+        background-size: cover;
+        margin: 0.3rem 0.6rem 0.15rem 0.1rem;
+        position: relative;
+        height: 1.2rem;
+        font-size: 0.08rem;
+        position: relative;
+        box-sizing: border-box;
+        font-size: 0.16rem;
+        background-color: red;
+    }
+    .dataLine li .abnormal_min{
+        position: absolute;
+        top: 1.05rem;
+        left: 2.35rem;
+        color: red;
+    }
+    .dataLine li .normal_min{
+        position: absolute;
+        left: 2.35rem;
+        top: 0.7rem;
+        color: lawngreen;
+
+    }
+    .dataLine li .normal_max{
+        position: absolute;
+        left: 2.35rem;
+        top: 0.3rem;
+        color: lawngreen;
+    }
+    .dataLine li .abnormal_max{
+        position: absolute;
+        left: 2.35rem;
+        top: -0.05rem;
+        color: red;
+
+    }
+    .dataLine li .reality{
+        position: absolute;
+        left: 2.35rem;;
+        top: 0.5rem;
+        color: blue;
+    }
+    .dataLine li .name{
+        position: absolute;
+        top: -0.2rem;
+        left: 0;
+        /*text-align: center;*/
+        width: 100%;
+        font-size: 0.12rem;
+        text-align: center;
+    }
+    .dataLine li .result{
+        position: absolute;
+        top: -0.2rem;
+        left: 0;
+        text-align: right;
+        width: 100%;
+        font-size: 0.12rem;
+
+    }
+    .dataLine li .canvas{
+        width: 2.3rem;
+        height: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    #box{
+        position: absolute;
+        left: 0;
+        background-color: black;
+        z-index: 999;
+        display: none;
+        background: #fff;
+    }
+    #box .container{
+        width: 5.8rem;
+        height: 9.36rem;
+        background: url("background.png") no-repeat;
+        background-size: cover;
+    }
+
+
+    </STYLE>
+</head>
+<body style="background-image:url(Pagebg.jpg);background-position:center top;
+background-repeat:no-repeat;background-attachment:fixed;">
+<div id="box"></div>
+<table cellSpacing=4 cellPadding=0 align=Center border=0>
+    <tr>
+        <td align=middle colspan=3><font size=6 face=黑体><p>量子弱磁检测(心脑血管检测报告)</p>
+            <p>分析报告单</p></font></td>
+    </tr>
+    <tr>
+        <td width=100% colspan=3>
+            <hr color=#FF9933 size=2>
+        </td>
+    </tr>
+    <tr>
+        <td width=30%>姓名:张三</td>
+        <td width=30% align=center>性别 : 男</td>
+        <td width=30% align=center>年龄:43</td>
+    </tr>
+    <tr>
+        <td colspan=3>
+            <table width=100% cellSpacing=0 cellPadding=0>
+                <tr>
+                    <td width=50% align=left>体形:标准体重(160cm，60kg)</td>
+                    <td width=50% align=right>检测时间:2016-02-26 15:58</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td  colspan=3>
+            <hr color=#FF9933 size=2>
+        </td>
+    </tr>
+</table>
+<TABLE align=center border=0 cellpadding=0 cellspacing=0 class="explain">
+    <tr>
+        <td height=8></td>
+    </tr>
+</table>
+<TABLE align=center border=0 class="explain">
+    <TR>
+        <TD><Font size=3><STRONG>实际检测结果</STRONG></Font></TD>
+    </TR>
+</TABLE>
+
+
+
+<div class="dataLine">
+    <ul id="content"></ul>
+</div>
+
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td height=20></td>
+    </tr>
+</table>
+
+
+<TABLE cellSpacing=0 cellPadding=3 class="explain" align=center border=0>
+    <TR align=middle>
+        <TD rowspan="2"><STRONG>参考标准:</STRONG></TD>
+        <TD>
+            <div align="right"><img src=YCMark4.jpg border=0></div>
+        </TD>
+        <TD>
+            <div align="left"><B>正常(-)</B></div>
+        </TD>
+        <TD>
+            <div align="right"><img src=YCMark3.jpg border=0></div>
+        </TD>
+        <TD>
+            <div align="left"><B>轻度异常(+)</B></div>
+        </TD>
+    </TR>
+    <TR align=middle>
+        <TD>
+            <div align="right"><img src=YCMark2.jpg border=0></div>
+        </TD>
+        <TD>
+            <div align="left"><B>中度异常(++)</B></div>
+        </TD>
+        <TD>
+            <div align="right"><img src=YCMark1.jpg border=0></div>
+        </TD>
+        <TD>
+            <div align="left"><B>重度异常(+++)</B></div>
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td height=30></td>
+    </tr>
+</table>
+<TABLE class=wtable cellSpacing=4 cellPadding=3 class="explain" align=center border=0 bgcolor=B3D9ED>
+    <TR>
+        <TD align=center><B>参&nbsp;&nbsp;数&nbsp;&nbsp;说&nbsp;&nbsp;明</B></TD>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>血液粘稠度（N）：</B>血液流变学的基本指标，是指血液分子间的内摩擦力。</TD>
+    </TR>
+    <TR>
+        <TD>高粘状态：即血液的粘度高，血液流动就受到影响，所以高血压的病人，高粘容易出现脑血管意外，如可能出现中风等现象；冠心病的病人高粘状态，容易出现心肌梗塞等现象。</TD>
+    </TR>
+    <TR>
+        <TD>血液在血管中流动处于层流状态，也就是分层流动，越靠近血管壁，流速越慢，中间最快。所以切变率越大，斜度越大，切应力越大，流速越快，N 越低。切变率越小，斜度越小，切应力越小，流速越慢，N 越高。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>胆固醇结晶：</B></TD>
+    </TR>
+    <TR>
+        <TD>（1）增高，见于原发性高胆固醇血证，轻度动脉粥样硬化的先兆及心血瘀阻型胸痹，痰浊壅塞型胸痹等证。</TD>
+    </TR>
+    <TR>
+        <TD>（2）降低，见于免疫力下降，营养不良，心肌供血不足及气阴两虚型胸痹，阳气虚衰型胸痹等证。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>血脂：</B>血脂异常分为原发性及继发性。 <br/>1、原发性高脂蛋白血症：指原因不明的可能与某些环境因素（包括饮食、营养、药物等）有关，或由于基因变异所引起的高脂蛋白血症。 <br/>2、继发性高脂蛋白血症：指由于某些全身性疾病或药物引起的高脂血症。如糖尿病、甲状腺功能减退症、肾病综合征、慢性肾功能衰竭、急性肾功能衰竭所引起的高脂血症等。</B>
+        </TD>
+    </TR>
+    <TR>
+        <TD>（1）增高，见于特发性高脂血症，动脉粥样硬化症及心血瘀阻型胸痹等证。</TD>
+    </TR>
+    <TR>
+        <TD>（2）降低，见于素体免疫力下降，及气阴两虚型胸痹等证。</TD>
+    </TR>
+    <TR>
+        <TD>（3）减低，见于脑动脉血氧含量减低，轻度缺血性脑血管疾病先兆。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>血管阻力：</B></TD>
+    </TR>
+    <TR>
+        <TD>增高，与血管的长度呈正比，与血管的口径成反比。血管阻力增高见于收缩压和舒张压轻度升高。轻度高血压及心脾两虚型不寐，痰热内扰型不寐等证。</TD>
+    </TR>
+    <TR>
+        <TD>减低，收缩压和舒张压轻度降低，轻度低血压，阴虚火旺型不寐等证。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>血管弹性：</B>心脏收缩排血时动脉血管弹性扩张的程度。</TD>
+    </TR>
+    <TR>
+        <TD>影响因素：（1）SV 的大小。SV 越大，FEK 越大。（2）排空速度。排空越快，FEK 越小。（3）血管弹性不好。</TD>
+    </TR>
+    <TR>
+        <TD>当SV 不低，排空速度不快，FEK
+            小同时具备，才可能判断血管有硬化的可能，而不宜只凭单一参数进行判断。血管弹性增大。收缩压轻度升高，舒张压轻度降低，脉压轻度增大，血压稍高。及阴虚火旺型不寐等证。血管弹性减低。见于轻度动脉粥样硬化，冠心病。及心血瘀阻型胸痹，阳气虚衰型胸痹等证。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>心肌血液需量：</B>经心脏冠状动脉灌流的每分钟血液需求量。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>心肌血液灌注量：</B>经心脏冠状动脉灌流的每分钟实际血液量。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>心肌耗氧量：</B>心脏每分钟耗氧的毫升数。</TD>
+    </TR>
+    <TR>
+        <TD>影响因素：3 个方面<br/>（1）心率：心率快，HOV 大。<br/>（2）心肌收缩力：心肌收缩力强，HOV 大。<br/>（3）心肌收缩时间：收缩时间越长，HOV 越大。<br/>所以，耗氧低，做功高，为最佳状态。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>每搏心搏出量：</B>心脏每搏动一次所排出的血量。</TD>
+    </TR>
+    <TR>
+        <TD>影响因素：5 个方面<br/>（1）有效循环血容量（BV）：血容量不足时，回心血量少，SV 降低。<br/>（2）心肌收缩力的减弱：收缩力低，压力低，射出的血量少。<br/>（3）心室充盈的程度：在心肌弹性范围内，充盈程度越大，回缩就越有力，SV
+            增高。正常人的心腔容量为173ml，但不是所有的血都射出，左室射血量大约为总容量的60%-70%，大约125ml 左右。通常中国人的SV 平均为80-90ml。<br/>（4）周阻大小。周阻大，SV
+            降低；周阻小，SV 增加。<br/>（5）室壁运动。
+        </TD>
+    </TR>
+    <TR>
+        <TD>心室收缩时，心肌是协调一致运动的，如果心肌收缩不协调，SV 降低。如：一些心肌梗塞的病人，有一部分梗塞了，这样心肌收缩力不一致，SV 降低。但一般情况下，室壁运动不会异常。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>左心室喷血阻抗：</B>反映左心流出通道阻力状况的指标。</TD>
+    </TR>
+    <TR>
+        <TD>影响因素：<br/>（1）流出通道有无病变。如主动脉瓣狭窄等都可引起VER 增大。<br/>（2）流出通道无病变，但主动脉血液排空速度缓慢，VER 增大。<br/>（3）整个血管阻力大。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>左心室有效泵力：</B>反映左心有效搏血的收缩力量。</TD>
+    </TR>
+    <TR>
+        <TD>中国人正常情况：1.8 公斤左右。泵力低，收缩得不好，心肌纤维可能有问题。泵力高，收缩力强，射血量多。</TD>
+    </TR>
+    <TR>
+        <TD>影响因素：4 个方面<br/>（1）心室的充盈程度：在弹性范围内，充盈程度越大，收缩力越强，成正比例关系。如果超过限度，心肌拉大，反而收缩力降低。所以恰当的充盈程度是影响收缩力的一个因素。<br/>（2）有效循环血量（回心血量BV）：回心血量少，充盈不足，收缩力小；回心血量多，充盈较好，收缩力大。<br/>（3）心肌本身的功能状况：心肌有无病变，如心肌炎，心肌细胞受到损害，心肌弹性变差，收缩力就变小。<br/>（4）心肌本身的供血、供氧是否正常：供血、供氧不足，心肌收缩力也就变小。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>冠状动脉弹性：</B></TD>
+    </TR>
+    <TR>
+        <TD>
+            生命动力的源泉是心脏，滋润身体的血液在她的推动下流淌不息。但她亦需要血液的滋润，分布于心脏上的三根血管――冠状动脉就能供应她的血氧。冠状动脉是专门给心脏供血的动脉，如果由于胆固醇等物质在血管内堆积，使管腔越来越窄或堵塞，血流不畅，使血流受阻，引起心脏缺血，发生一系列症状，即冠心病也就是冠状动脉粥样硬化。冠心病也叫冠状动脉粥样硬化性心脏病。由于过多脂肪沉积，造成动脉硬化，
+            弹性减弱，在人的动脉血管壁上发心脑血管病的死亡率已超过人口全部死亡率的1/2
+        </TD>
+    </TR>
+    <TR>
+        <TD>引起冠状动脉弹性减弱的危险因素: 高血脂，吸烟，糖尿病，肥胖，高血压，缺乏体力活动，精神过度紧张，冠心病家族史、口服避孕药等。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>冠状动脉灌注压：</B>心脏冠状动脉供血时的压力，受舒张压和左房压影响。</TD>
+    </TR>
+    <TR>
+        <TD>心肌部分缺血，心肌供血不足。心肌完全缺血，可能发生心肌梗塞。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>脑血管弹性：</B></TD>
+    </TR>
+    <TR>
+        <TD>指脑部动脉或支配脑的颈部动脉发生病变，从而引起颅内血液循环障碍，脑组织受损的一组疾病。硬化了的脑血管弹性减弱，管腔狭窄，容易形成脑血栓，而脑动脉硬化的病人，过量饮酒后，血压突然升高，血管破裂，又容易发生脑出血。
+            大量饮酒后，血中酒精浓度半小时可以达到高峰。酒精不但可以直接刺激血管壁，使血管失去弹性，还能刺激肝脏，促进胆固醇和甘油三脂合成，进而导致动脉硬化，引起脑动脉粥样硬化加重脑血管病按其进程，可分为急性脑血管病和慢性脑血管病两种，急性脑血管病包括短暂性脑缺血发作，脑血栓形成，脑栓塞、高血压脑病、脑出血和蛛网膜下腔出血等；慢性脑血管病包括脑动脉硬化，脑血管病性痴呆，脑动脉盗血综合征，帕金森氏病等，我们通常所说的脑血管病，一般指的是急性脑血管病，发病急，常危及人的生命，因此，也易引起人们的重视。而慢性脑血管病病程长，易被人忽视。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>脑组织供血状况：</B></TD>
+    </TR>
+    <TR>
+        <TD>
+            脑组织供血主要是靠脑部动脉或支配脑的颈部动脉供应，脑血管病按其性质可分为两大类，一类是缺血性脑血管病，临床较多见，约占全部脑血管病人的70%～80%，是由于脑动脉硬化等原因，使脑动脉管腔狭窄，血流减少或完全阻塞，脑部血液循环障碍，脑组织受损而发生的一系列症状。另一类是出血性脑血管病，多由长期高血压、先天性脑血管畸形等因素所致。由于血管破裂，血液溢出，压迫脑组织，血液循环受阻，病人常表现脑压增高、神志不清等症状。这类病人约占脑血管病的20%-30%左右。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>心搏系数：</B></TD>
+    </TR>
+    <TR>
+        <TD>心跳、脉搏跳动的情况</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>主动脉排空系数：</B></TD>
+    </TR>
+    <TR>
+        <TD>体循环的动脉主干.行径:</TD>
+    </TR>
+    <TR>
+        <TD>升主动脉起于左心室,至右侧第2胸肋关节高度移行为主动脉弓,弓行向左后至第4胸椎体下缘移行为胸主动脉;</TD>
+    </TR>
+    <TR>
+        <TD>在第12胸椎体高度穿膈的主动脉裂孔移行为腹主动脉,至第4腰椎体下缘分为左,右髂总动脉;</TD>
+    </TR>
+    <TR>
+        <TD>髂总动脉在骶髂关节高度分为髂内,外动脉</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB></TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>心脏：</B></TD>
+    </TR>
+    <TR>
+        <TD>心脏，是人和脊椎动物器官之一。</TD>
+    </TR>
+    <TR>
+        <TD>是循环系统中的动力。人的心脏如本人的拳头，外形像桃子，位于横膈之上，两肺间而偏左。主要由心肌构成，有左心房、左心室、右心房、右心室四个腔。</TD>
+    </TR>
+    <TR>
+        <TD>左右心房之间和左右心室之间均由间隔隔开，故互不相通，心房与心室之间有瓣膜，这些瓣膜使血液只能由心房流入心室，而不能倒流。</TD>
+    </TR>
+    <TR>
+        <TD>心脏的作用是推动血液流动，向器官、组织提供充足的血流量，以供应氧和各种营养物质，并带走代谢的终产物（如二氧化碳、尿素和尿酸等），使细胞维持正常的代谢和功能。</TD>
+    </TR>
+</TABLE>
+<TABLE class=xtable cellSpacing=4 cellPadding=0 class="explain" align=center border=0 bgcolor=EBF5FB>
+    <TR>
+        <TD><B>血管的顺应性：</B></TD>
+    </TR>
+    <TR>
+        <TD>
+            跨壁压指血管内的血液对管壁的压力与血管外组织对管壁压力之差。当血管内压力增高时可引起血管内径扩展，跨壁压将随血管内压增高而加大，而其血流阻力却相应地有所降低。当管壁张力随跨壁压降低而减小时，流经该段血管的血流阻力增大；管壁张力减小到某一临界值时，血流便停止。
+        </TD>
+    </TR>
+</TABLE>
+<TABLE class="explain" align=center border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td height=12></td>
+    </tr>
+</table>
+<table cellSpacing=0 cellPadding=0  align=Center border=0 class="six">
+    <tr>
+        <td>
+            <hr color=#FF9933 size=2>
+        </td>
+    </tr>
+</table>
+<TABLE cellSpacing=0 cellPadding=0 class="explain" align=center border=0>
+    <TR height=5>
+        <TD></TD>
+    </TR>
+    <TR align=right>
+        <TD colSpan=2><p>本检测结果仅供参考，不作为诊断结论。
+        </p></TD>
+    </TR>
+</table>
+
+
+<script>
+    var data = [
+         {{table}}
+    ]
+
+    function draw(a,color,canvas) {
+        var fontSize = document.documentElement.style.fontSize.replace("px","");
+        var s = canvas.getContext("2d");
+        //贝兹曲线
+        var start = 1.2*(fontSize)*2;
+        console.log(start);
+        console.log(document.documentElement.style.fontSize)
+        s.beginPath();
+        s.strokeStyle=color;
+        s.moveTo(0,start);
+        var end = 2.3*(fontSize)*2;
+        s.quadraticCurveTo(60,40,end,a);
+        s.stroke();
+    }
+
+    function BigDraw(a,color,canvas) {
+        var s = canvas.getContext("2d");
+        //贝兹曲线
+        s.beginPath();
+        s.strokeStyle=color;
+        s.moveTo(0,0);
+        s.quadraticCurveTo(canvas.width/3,canvas.height/4,a,canvas.height);
+        s.stroke();
+    }
+
+    var content = document.getElementById("content");
+    for(var i=0;i<data.length;i++){
+        var dataLine = document.createElement("li");
+        content.appendChild(dataLine);
+        dataLine.innerHTML = '<canvas  class="canvas"></canvas>' +
+                '<span class="name">'+data[i].name+'</span>'+
+                '<span class="result">'+data[i].result+'</span>'+
+                '<span class="abnormal_min">'+data[i].abnormal_min+'</span>' +
+                '<span class="normal_min">'+data[i].normal_min+'</span>' +
+                '<span class="normal_max">'+data[i].normal_max+'</span>'+
+                '<span class="reality">'+data[i].reality+'</span>'+
+                '<span class="abnormal_max">'+data[i].abnormal_max+'</span>'
+
+    }
+        window.onload = function(){
+            var fontSize = document.documentElement.style.fontSize.replace("px","");
+            var canvases = document.getElementsByClassName("canvas");
+
+            var lis = document.getElementsByTagName("li");
+            for(var i=0;i<data.length;i++){
+                var alone = data[i];
+                var color,length,coord;
+                color = alone.resultColor;
+
+                //颜色
+<!--                if(alone.result=="正常"){-->
+<!--                    color = "lawngreen";-->
+<!--                }else if(alone.result=="轻度异常") {-->
+<!--                    color = "steelblue";-->
+<!--                }else if(alone.result=="中度异常") {-->
+<!--                    color = "darkgoldenrod";-->
+<!--                }else {-->
+<!--                    color = "red";-->
+<!--                }-->
+
+                //高度
+                if (alone.reality<alone.normal_min) {
+                    length = 2.4*fontSize-(alone.reality-alone.abnormal_min)/(alone.normal_min-alone.abnormal_min)*0.7*fontSize;
+                    coord = 0.9*fontSize;
+                    console.log(coord)
+                }else if (alone.reality<alone.normal_max) {
+                    length = 1.7*fontSize-(alone.reality-alone.normal_min)/(alone.normal_max-alone.normal_min)*0.8*fontSize;
+                    coord = 0.5*fontSize;
+                    console.log(coord)
+                }else if (alone.reality<alone.abnormal_max) {
+                    length = 0.9*fontSize-(alone.reality-alone.normal_max)/(alone.abnormal_max-alone.normal_max)*35;
+                    coord = 0.1*fontSize;
+                    console.log(coord)
+                }
+
+                var canvas = canvases[i];
+                canvas.width = 2.3*2*fontSize;
+                canvas.height = 1.2*2*fontSize;
+                draw(40,"green",canvas);
+                draw(length,color,canvas);
+
+                var reality = (lis[i].childNodes)[6];
+                console.log(result);
+                console.log(coord);
+                reality.style.top = coord+"px";
+                reality.style.color = color;
+                var result = (lis[i].childNodes)[2];
+                result.style.color = color;
+                var box = document.getElementById("box");
+                lis[i].index = i;
+                lis[i].length = length;
+                lis[i].color = color;
+                lis[i].onclick = function(){
+                    box.style.display = "block";
+                    box.style.width = "100%";
+                    box.style.height = "100%";
+                    var boxTop = document.body.scrollTop;
+                    box.style.top = boxTop+"px";
+                    box.innerHTML = '<div class="container">'+
+                                '<canvas class="bigCanvas"></canvas>' +
+                                '<span class="bigName">'+data[this.index].name+'</span>'+
+                                '<span class="bigResult">'+data[this.index].result+'</span>'+
+                                '<span class="bigAbnormal_min">'+data[this.index].abnormal_min+'</span>' +
+                                '<span class="bigNormal_min">'+data[this.index].normal_min+'</span>' +
+                                '<span class="bigNormal_max">'+data[this.index].normal_max+'</span>'+
+                                '<span class="bigReality">'+data[this.index].reality+'</span>'+
+                                '<span class="bigAbnormal_max">'+data[this.index].abnormal_max+'</span>'+
+                            '</div>';
+                    var bigcanvas = document.getElementsByClassName("bigCanvas");
+                    console.log(bigcanvas);
+                    var canvas1 = bigcanvas[0];
+                    canvas1.style.width = "100%";
+                    canvas1.style.height = "100%";
+                    BigDraw(canvas1.width*2/3,"green",canvas1);
+                    BigDraw(canvas1.width-canvas1.width*this.length/canvas.height,this.color,canvas1);
+                }
+
+            }
+
+
+            document.addEventListener('touchmove', function(event) {
+                if(box.style.display=="block"){
+                    event.preventDefault();
+                }
+            })
+            box.onclick = function(){
+                box.style.display = "none"
+                box.innerHTML = "";
+            }
+
+
+        }
+</script>
+</body>
+</html>
