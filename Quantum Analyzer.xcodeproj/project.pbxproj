@@ -85,6 +85,7 @@
 		A06FFB151E1B9094006821E9 /* TblSuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB121E1B9094006821E9 /* TblSuggest.m */; };
 		A06FFB161E1B9094006821E9 /* TblSuggestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A06FFB141E1B9094006821E9 /* TblSuggestManager.m */; };
 		A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */; };
+		A08612BF1EB5DD71005ABA61 /* 量子检测综合报告单.htm in Resources */ = {isa = PBXBuildFile; fileRef = A08612BE1EB5DD71005ABA61 /* 量子检测综合报告单.htm */; };
 		A09102AF1E90B07E00482C03 /* man_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102A91E90B07E00482C03 /* man_1.mp4 */; };
 		A09102B01E90B07E00482C03 /* man_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AA1E90B07E00482C03 /* man_2.mp4 */; };
 		A09102B11E90B07E00482C03 /* man_3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A09102AB1E90B07E00482C03 /* man_3.mp4 */; };
@@ -158,7 +159,6 @@
 		A0E198941E14FCD60059E966 /* ReportList.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0E198871E14F9D60059E966 /* ReportList.sqlite */; };
 		A0E198951E14FCD60059E966 /* TblMeasData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0E198881E14F9D60059E966 /* TblMeasData.sqlite */; };
 		A0E198961E14FCD60059E966 /* TblSubItemCase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0E198891E14F9D60059E966 /* TblSubItemCase.sqlite */; };
-		A0EF93851EAB6518002F35FC /* 量子检测综合报告单.htm in Resources */ = {isa = PBXBuildFile; fileRef = A0EF93841EAB6518002F35FC /* 量子检测综合报告单.htm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +246,7 @@
 		A06FFB131E1B9094006821E9 /* TblSuggestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TblSuggestManager.h; sourceTree = "<group>"; };
 		A06FFB141E1B9094006821E9 /* TblSuggestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TblSuggestManager.m; sourceTree = "<group>"; };
 		A06FFB171E1B90FF006821E9 /* TblSuggest.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TblSuggest.sqlite; sourceTree = "<group>"; };
+		A08612BE1EB5DD71005ABA61 /* 量子检测综合报告单.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "量子检测综合报告单.htm"; sourceTree = "<group>"; };
 		A09102A91E90B07E00482C03 /* man_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_1.mp4; sourceTree = "<group>"; };
 		A09102AA1E90B07E00482C03 /* man_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_2.mp4; sourceTree = "<group>"; };
 		A09102AB1E90B07E00482C03 /* man_3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = man_3.mp4; sourceTree = "<group>"; };
@@ -366,7 +367,6 @@
 		A0E1988E1E14FA710059E966 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		A0E1988F1E14FA710059E966 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		A0E198901E14FA710059E966 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
-		A0EF93841EAB6518002F35FC /* 量子检测综合报告单.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "量子检测综合报告单.htm"; sourceTree = "<group>"; };
 		D58EA15D6845FC5E9BBB4663 /* Pods-Quantum Analyzer.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		D82DE8A9AFF128D7210D3E43 /* libPods-Quantum Analyzer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Quantum Analyzer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F213BB477048F801B8105595 /* Pods-Quantum Analyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quantum Analyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quantum Analyzer/Pods-Quantum Analyzer.release.xcconfig"; sourceTree = "<group>"; };
@@ -430,6 +430,7 @@
 				A04076861EA3A93A00695B21 /* YCMark2.jpg */,
 				A04076871EA3A93A00695B21 /* YCMark3.jpg */,
 				A04076881EA3A93A00695B21 /* YCMark4.jpg */,
+				A08612BE1EB5DD71005ABA61 /* 量子检测综合报告单.htm */,
 				A04076891EA3A93A00695B21 /* 乳腺检测报告.htm */,
 				A040768A1EA3A93A00695B21 /* 人体成分检测报告.htm */,
 				A040768B1EA3A93A00695B21 /* 人体毒素检测报告.htm */,
@@ -467,7 +468,6 @@
 				A04076AB1EA3A93A00695B21 /* 过敏检测报告.htm */,
 				A04076AC1EA3A93A00695B21 /* 重金属检测报告.htm */,
 				A04076AD1EA3A93A00695B21 /* 量子弱磁综合报告单.htm */,
-				A0EF93841EAB6518002F35FC /* 量子检测综合报告单.htm */,
 				A04076AF1EA3A93A00695B21 /* 风湿骨病检测报告.htm */,
 				A04076B01EA3A93A00695B21 /* 骨密度检测报告.htm */,
 				A04076B11EA3A93A00695B21 /* 骨生长指数检测报告.htm */,
@@ -912,7 +912,7 @@
 			files = (
 				A04076C11EA3A93A00695B21 /* YC04.gif in Resources */,
 				A06FFB181E1B9795006821E9 /* TblSuggest.sqlite in Resources */,
-				A0EF93851EAB6518002F35FC /* 量子检测综合报告单.htm in Resources */,
+				A08612BF1EB5DD71005ABA61 /* 量子检测综合报告单.htm in Resources */,
 				A04076B71EA3A93A00695B21 /* health.css in Resources */,
 				A04076DF1EA3A93A00695B21 /* 维生素检测报告.htm in Resources */,
 				A04076DC1EA3A93A00695B21 /* 眼部检测报告.htm in Resources */,
@@ -1326,7 +1326,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a14323dc-63f8-4025-a843-89ba9fa8e790";
+				PROVISIONING_PROFILE = "f5c54273-1693-4c9a-9477-d692467d7e3e";
 				PROVISIONING_PROFILE_SPECIFIER = "chinapost test ad hoc profile";
 			};
 			name = "ad Hoc";

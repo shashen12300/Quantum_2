@@ -11,3 +11,14 @@
 @implementation CollectModel
 
 @end
+
+@implementation NewCollectModel
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _graphData = [[ReportGraphData alloc] init];
+    }
+    return self;
+}
+@end

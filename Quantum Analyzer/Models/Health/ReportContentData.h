@@ -21,7 +21,6 @@
 /* 检测结果*/
 @property(nonatomic,copy) NSString *resultState;
 
-
 @end
 
 /* 绘制曲线图*/

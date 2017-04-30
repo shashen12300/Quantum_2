@@ -63,9 +63,9 @@ static HealthReportManager *_healthReportManager = nil;
         [_db open];
         
         // 初始化数据表
-        NSString *personSql2 = @"CREATE TABLE 'collectReport' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'n_MainItemID' VARCHAR(255),'str_SubItemName' VARCHAR(255),'db_SbuItemRange' VARCHAR(255),'db_subItemReal' VARCHAR(255),'n_Result' VARCHAR(255),'str_Record_Time' VARCHAR(255)) ";
+        NSString *personSql2 = @"CREATE TABLE 'collectReport' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'n_MainItemID' VARCHAR(255),'str_SubItemName' VARCHAR(255),'db_SbuItemMinValue' VARCHAR(255),'db_SbuItemMaxValue' VARCHAR(255),'db_SbuItemAbnormalMinValue' VARCHAR(255),'db_SbuItemAbnormalMaxValue' VARCHAR(255),'db_subItemReal' VARCHAR(255),'n_Result' VARCHAR(255),'str_Record_Time' VARCHAR(255),'str_MainName' VARCHAR(255),'str_ResultState' VARCHAR(255),'str_ResultDescription' VARCHAR(255))";
         
-        [_db executeUpdate:personSql2];
+        [_db executeUpdate:personSql2]; //abnormal
         [_db close];
 
     }
@@ -80,11 +80,19 @@ static HealthReportManager *_healthReportManager = nil;
     
 }
 
+
+- (void)addNewCollection:(NewCollectModel *)newCollect {
+    [_db open];
+    [_db executeUpdate:@"INSERT INTO collectReport(n_MainItemID,str_SubItemName,db_SbuItemMinValue,db_SbuItemMaxValue,db_subItemReal,n_Result,str_Record_Time,db_SbuItemAbnormalMinValue,db_SbuItemAbnormalMaxValue,str_MainName,str_ResultState,str_ResultDescription)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",newCollect.n_MainItemID,newCollect.graphData.name,newCollect.graphData.minValue,newCollect.graphData.maxValue,newCollect.graphData.realValue,newCollect.n_Result,newCollect.record_time,newCollect.graphData.minAbnormalValue,newCollect.graphData.maxAbnormalValue,newCollect.reportName,newCollect.graphData.resultState,newCollect.graphData.resultDescription];
+    [_db close];
+}
+
 /* 生成表格*/
 - (NSString *)htmlStr:(ReportContentData *)reportContentData {
     NSString *htmls = [NSString stringWithFormat:@"<TR class=td align=left bgcolor=EBF5FB><TD class=td align=middle>%@ </TD><TD class=td align=middle>%@ - %@ </TD><TD class=td align=middle>%@ </TD><TD class=td align=middle>%@</TD></TR>",reportContentData.name,reportContentData.minValue,reportContentData.maxValue,reportContentData.realValue,reportContentData.resultState];
     return htmls;
 }
+
 /* 生成曲线数据*/
 - (NSString *)graphHtml:(ReportGraphData *)reportContentData {
     NSString *htmls = [NSString stringWithFormat:@"        { name: \"%@\",normal_min: %@,normal_max: %@,abnormal_min: %@,abnormal_max: %@,reality: %@,result: \"%@\",resultColor: \"%@\",},",reportContentData.name,reportContentData.minValue,reportContentData.maxValue,reportContentData.minAbnormalValue,reportContentData.maxAbnormalValue,reportContentData.realValue,reportContentData.resultDescription,reportContentData.resultState];
@@ -96,7 +104,8 @@ static HealthReportManager *_healthReportManager = nil;
 /* 获取所有综合表单信息*/
 - (NSArray *)allCollectMessage {
     NSString *sqliteStr = @"SELECT * FROM collectReport";
-    return [self queryAllSqlite:sqliteStr];
+//    return [self queryAllSqlite:sqliteStr];
+    return [self queryNewAllSqlite:sqliteStr];
 }
 
 /* 获取当前报告的综合信息*/
@@ -104,7 +113,8 @@ static HealthReportManager *_healthReportManager = nil;
     
     NSString *sqliteStr = [NSString stringWithFormat:@"SELECT * FROM collectReport where n_MainItemID = %@",reportID];
 
-    return [self queryAllSqlite:sqliteStr];
+//    return [self queryAllSqlite:sqliteStr];
+    return [self queryNewAllSqlite:sqliteStr];
 }
 
 /* 获取当前报告的中度异常综合信息*/
@@ -112,7 +122,8 @@ static HealthReportManager *_healthReportManager = nil;
     
     NSString *sqliteStr = [NSString stringWithFormat:@"SELECT * FROM collectReport where n_MainItemID = %@ and n_Result = %@",reportID,result];
     
-    return [self queryAllSqlite:sqliteStr];
+//    return [self queryAllSqlite:sqliteStr];
+    return [self queryNewAllSqlite:sqliteStr];
 }
 
 /* 删除所有综合表单信息*/
@@ -138,6 +149,37 @@ static HealthReportManager *_healthReportManager = nil;
         collect.db_SbuItemRange = [res stringForColumn:@"db_SbuItemRange"];
         collect.db_subItemReal = [res stringForColumn:@"db_subItemReal"];
         collect.n_Result = [res stringForColumn:@"n_Result"];
+        
+        [dataArray addObject:collect];
+    }
+    
+    [_db close];
+    
+    return dataArray;
+}
+
+- (NSMutableArray *)queryNewAllSqlite:(NSString *)sqliteStr {
+    [_db open];
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:sqliteStr];
+    
+    while ([res next]) {
+        NewCollectModel *collect = [[NewCollectModel alloc] init];
+        collect.n_MainItemID = [res stringForColumn:@"n_MainItemID"];
+        collect.graphData.name = [res stringForColumn:@"str_SubItemName"];
+        collect.graphData.minValue = [res stringForColumn:@"db_SbuItemMinValue"];
+        collect.graphData.maxValue = [res stringForColumn:@"db_SbuItemMaxValue"];
+        collect.graphData.minAbnormalValue = [res stringForColumn:@"db_SbuItemAbnormalMinValue"];
+        collect.graphData.maxAbnormalValue = [res stringForColumn:@"db_SbuItemAbnormalMaxValue"];
+        collect.graphData.realValue = [res stringForColumn:@"db_subItemReal"];
+        collect.graphData.resultState = [res stringForColumn:@"str_ResultState"];
+        collect.graphData.resultDescription = [res stringForColumn:@"str_ResultDescription"];
+        collect.n_Result = [res stringForColumn:@"n_Result"];
+        collect.record_time = [res stringForColumn:@"str_Record_Time"];
+        collect.reportName = [res stringForColumn:@"str_MainName"];
+        
         
         [dataArray addObject:collect];
     }
@@ -306,10 +348,10 @@ static HealthReportManager *_healthReportManager = nil;
     return resultStr;
 }
 /* 检测报告曲线图*/
-- (NSString *)getCheckReportGraphHtml:(NSString *)mainItemID RecordTime:(NSString *)recordTime{
+- (NSString *)getCheckReportGraphHtml:(ReportList *)reportList RecordTime:(NSString *)recordTime{
     NSString *htmlStr = @"";
     Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
-    NSArray *allSubItems = [[NSArray alloc] initWithArray:[[TblSubItemCaseManager sharedManager] getSingleReportAllSubItem:mainItemID]];
+    NSArray *allSubItems = [[NSArray alloc] initWithArray:[[TblSubItemCaseManager sharedManager] getSingleReportAllSubItem:reportList.reportID]];
     for (TblSubItemCase *subItemCase in allSubItems) {
         if ([subItemCase isKindOfClass:[TblSubItemCase class]]) {
             TblMeasData *measData = [[TblMeasDataManager sharedManager] getHealthStateSubItemID:subItemCase.n_SubItemID Age:person.age type:person.health];
@@ -375,14 +417,21 @@ static HealthReportManager *_healthReportManager = nil;
                 htmlStr = [htmlStr stringByAppendingString:subItemStr];
                 
                 if (n_Result >= 2) {
-                    CollectModel *collect = [[CollectModel alloc] init];
-                    collect.n_MainItemID = mainItemID;
-                    collect.str_SubItemName = report.name;
-                    collect.db_subItemReal = report.realValue;
-                    collect.db_SbuItemRange = [NSString stringWithFormat:@"%@-%@",report.minValue,report.maxValue];
-                    collect.str_Record_Time = recordTime;
+//                    CollectModel *collect = [[CollectModel alloc] init];
+//                    collect.n_MainItemID = mainItemID;
+//                    collect.str_SubItemName = report.name;
+//                    collect.db_subItemReal = report.realValue;
+//                    collect.db_SbuItemRange = [NSString stringWithFormat:@"%@-%@",report.minValue,report.maxValue];
+//                    collect.str_Record_Time = recordTime;
+//                    collect.n_Result = measData.n_Result;
+//                    [[HealthReportManager sharedManager]addCollection:collect];
+                    NewCollectModel *collect = [[NewCollectModel alloc] init];
+                    collect.graphData = report;
+                    collect.reportName = reportList.reportName;
+                    collect.record_time = recordTime;
+                    collect.n_MainItemID = reportList.reportID;
                     collect.n_Result = measData.n_Result;
-                    [[HealthReportManager sharedManager]addCollection:collect];
+                    [[HealthReportManager sharedManager] addNewCollection:collect];
                 }
             }
             else {
@@ -468,7 +517,7 @@ static HealthReportManager *_healthReportManager = nil;
     for (ReportList *reportList in sourceArray) {
         if ([reportList isKindOfClass:[ReportList class]]) {
 //            NSString *str = [[HealthReportManager sharedManager] getCheckReportHtml:reportList.reportID RecordTime:time];
-            NSString *str = [[HealthReportManager sharedManager] getCheckReportGraphHtml:reportList.reportID RecordTime:time];
+            NSString *str = [[HealthReportManager sharedManager] getCheckReportGraphHtml:reportList RecordTime:time];
             health.table = str;
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:reportList.reportName ofType:@"htm"];
             NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
@@ -478,13 +527,16 @@ static HealthReportManager *_healthReportManager = nil;
             [dictionary setObject:content forKey:reportList.reportName];
         }
     }
-      NSString *collectHtmlString  = [self creatCollectDataHtml:health];
+//    NSString *collectHtmlString  = [self creatCollectDataHtml:health];
+    NSString *collectHtmlString  = [self creatNewCollectDataHtml:health];
+
     [dictionary setObject:collectHtmlString forKey:@"量子检测综合报告单"];
 
     NSString *jsonString = [CommonCore jsonWithArray:dictionary];
+    
     return jsonString;
-   
 }
+
 
 /* 创建综合表单的html标签*/
 - (NSString *)creatCollectDataHtml:(HealthModel *)health {
@@ -493,7 +545,7 @@ static HealthReportManager *_healthReportManager = nil;
     NSString *htmlString2 = @"<TABLE cellSpacing=0 cellPadding=0 width=590 align=center border=0><TBODY><TR><TD height=20></TD></TR></TBODY></TABLE><TABLE width=590 align=center border=0><TBODY><TR><TD><FONT size=3><STRONG>有亚健康趋势的问题</STRONG></FONT></TD></TR></TBODY></TABLE><TABLE class=table cellSpacing=0 cellPadding=3 width=590 align=center border=0><TBODY><TR class=td height=28 align=center bgColor=#b3d9ed><TD class=td><STRONG>系统</STRONG></TD><TD class=td><STRONG>检测项目</STRONG></TD><TD class=td><STRONG>正常范围</STRONG></TD><TD class=td><STRONG>实际测量值</STRONG></TD><TD class=td><STRONG>专家建议</STRONG></TD></TR>";
     
     //亚健康问题
-    for (int i = 1 ; i < 100; ++i) {
+    for (int i = 1 ; i < 50; ++i) {
         NSString *reportID = [NSString stringWithFormat:@"%d",i];
         NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"2"];
         if (collects.count >0) {
@@ -512,8 +564,9 @@ static HealthReportManager *_healthReportManager = nil;
 
         }
     }
+    
     //隐患问题
-    for (int i = 1 ; i < 100; ++i) {
+    for (int i = 1 ; i < 50; ++i) {
         NSString *reportID = [NSString stringWithFormat:@"%d",i];
         NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"3"];
         if (collects.count >0) {
@@ -535,6 +588,73 @@ static HealthReportManager *_healthReportManager = nil;
     }
     htmlString1 = [htmlString1 stringByAppendingString:@"</TBODY></TABLE>"];
     htmlString2 = [htmlString2 stringByAppendingString:@"</TBODY></TABLE>"];
+
+    health.table = [htmlString1 stringByAppendingString:htmlString2];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单" ofType:@"htm"];
+    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    template = [template stringByReplacingOccurrencesOfString:@"{{table}}" withString:health.table];
+    NSDictionary *renderObject = [CommonCore dictionaryWithModel:health];
+    NSString *content = [GRMustacheTemplate renderObject:renderObject fromString:template error:nil];
+    if (content) {
+        [self deleteAllCollectMessage];
+    }
+    return content;
+}
+
+/* 创建曲线图综合表单的html标签*/
+- (NSString *)creatNewCollectDataHtml:(HealthModel *)health {
+//    NSString *htmlString1 = @"<TABLE cellSpacing=0 cellPadding=0 width=590 align=center border=0><TBODY><TR><TD height=20></TD></TR></TBODY></TABLE><TABLE width=590 align=center border=0><TBODY><TR><TD><FONT size=3><STRONG>可能有隐患的问题</STRONG></FONT></TD></TR></TBODY></TABLE><TABLE class=table cellSpacing=0 cellPadding=3 width=590 align=center border=0><TBODY><TR class=td height=28 align=center bgColor=#b3d9ed><TD class=td><STRONG>系统</STRONG></TD><TD class=td><STRONG>检测项目</STRONG></TD><TD class=td><STRONG>正常范围</STRONG></TD><TD class=td><STRONG>实际测量值</STRONG></TD><TD class=td><STRONG>专家建议</STRONG></TD></TR>";
+//    
+//    NSString *htmlString2 = @"<TABLE cellSpacing=0 cellPadding=0 width=590 align=center border=0><TBODY><TR><TD height=20></TD></TR></TBODY></TABLE><TABLE width=590 align=center border=0><TBODY><TR><TD><FONT size=3><STRONG>有亚健康趋势的问题</STRONG></FONT></TD></TR></TBODY></TABLE><TABLE class=table cellSpacing=0 cellPadding=3 width=590 align=center border=0><TBODY><TR class=td height=28 align=center bgColor=#b3d9ed><TD class=td><STRONG>系统</STRONG></TD><TD class=td><STRONG>检测项目</STRONG></TD><TD class=td><STRONG>正常范围</STRONG></TD><TD class=td><STRONG>实际测量值</STRONG></TD><TD class=td><STRONG>专家建议</STRONG></TD></TR>";
+    
+    //隐患问题
+    NSString *htmlString1=@"var troubleList = [";
+    for (int i = 1 ; i < 50; ++i) {
+        NSString *reportID = [NSString stringWithFormat:@"%d",i];
+        NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"3"];
+        if (collects.count >0) {
+            TblSuggest *suggest = [[TblSuggestManager sharedManager] getSuggests:reportID];
+            for (int index = 0; index < collects.count; ++index) {
+                NewCollectModel *collect = collects[index];
+                if ([collect isKindOfClass:[NewCollectModel class]]) {
+                    if (index==0) {
+                        htmlString1 = [htmlString1 stringByAppendingFormat:@"{title:\"%@\",suggestion:\"%@\",list:[{ name: \"%@\",normal_min: %@,normal_max: %@,abnormal_min: %@,abnormal_max: %@,reality: %@,result: \"%@\",resultColor: \"%@\",},",collect.reportName,suggest.suggest,collect.graphData.name,collect.graphData.minValue,collect.graphData.maxValue,collect.graphData.minAbnormalValue,collect.graphData.maxAbnormalValue,collect.graphData.realValue,collect.graphData.resultDescription,collect.graphData.resultState];
+                    }else {
+                        NSString *subItemStr = [NSString stringWithFormat:@"{ name: \"%@\",normal_min: %@,normal_max: %@,abnormal_min: %@,abnormal_max: %@,reality: %@,result: \"%@\",resultColor: \"%@\",},",collect.graphData.name,collect.graphData.minValue,collect.graphData.maxValue,collect.graphData.minAbnormalValue,collect.graphData.maxAbnormalValue,collect.graphData.realValue,collect.graphData.resultDescription,collect.graphData.resultState];;
+                        htmlString1 = [htmlString1 stringByAppendingString:subItemStr];
+                        
+                    }
+                }
+            }
+            htmlString1 = [htmlString1 stringByAppendingString:@"]},"];
+        }
+    }
+    htmlString1 = [htmlString1 stringByAppendingString:@"]\r\n"];
+    
+    //亚健康问题
+    NSString *htmlString2=@"var subHealthList = [";
+    for (int i = 1 ; i < 50; ++i) {
+        NSString *reportID = [NSString stringWithFormat:@"%d",i];
+        NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"3"];
+        if (collects.count >0) {
+            TblSuggest *suggest = [[TblSuggestManager sharedManager] getSuggests:reportID];
+            for (int index = 0; index < collects.count; ++index) {
+                NewCollectModel *collect = collects[index];
+                if ([collect isKindOfClass:[NewCollectModel class]]) {
+                    if (index==0) {
+                        htmlString2 = [htmlString2 stringByAppendingFormat:@"{title:\"%@\",suggestion:\"%@\",list:[{ name: \"%@\",normal_min: %@,normal_max: %@,abnormal_min: %@,abnormal_max: %@,reality: %@,result: \"%@\",resultColor: \"%@\",},",collect.reportName,suggest.suggest,collect.graphData.name,collect.graphData.minValue,collect.graphData.maxValue,collect.graphData.minAbnormalValue,collect.graphData.maxAbnormalValue,collect.graphData.realValue,collect.graphData.resultDescription,collect.graphData.resultState];
+                    }else {
+                        NSString *subItemStr = [NSString stringWithFormat:@"{ name: \"%@\",normal_min: %@,normal_max: %@,abnormal_min: %@,abnormal_max: %@,reality: %@,result: \"%@\",resultColor: \"%@\",},",collect.graphData.name,collect.graphData.minValue,collect.graphData.maxValue,collect.graphData.minAbnormalValue,collect.graphData.maxAbnormalValue,collect.graphData.realValue,collect.graphData.resultDescription,collect.graphData.resultState];;
+                        htmlString2 = [htmlString2 stringByAppendingString:subItemStr];
+                        
+                    }
+                }
+            }
+            htmlString2 = [htmlString2 stringByAppendingString:@"]},"];
+        }
+    }
+    htmlString2 = [htmlString2 stringByAppendingString:@"]"];
+
 
     health.table = [htmlString1 stringByAppendingString:htmlString2];
     NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单" ofType:@"htm"];

@@ -162,113 +162,113 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 
 }
 
-//- (IBAction)checkBtnClick:(UIButton *)sender {
-//        if (sender.tag==0) {
-//            _checkTime = 0;
-//            _shiImageView.image = [UIImage imageNamed:@"6"];
-//            _geImageView.image = [UIImage imageNamed:@"0"];
-//            
-//            _buttonType = StopCheck;
-//            [_timer setFireDate:[NSDate distantFuture]];
-//            [[QABLEAdapter sharedBLEAdapter] stopCheck];
-//            [self.moviePlayer stop];
-//            [_gifView stop];
-//            _moviePlayer.view.hidden = YES;
-//            _beginBtn.selected =NO;
-//            _stopBtn.selected = NO;
-//            //保存结果
-//            _buttonType = SaveCheck;
-//            NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];
-//            _record = [[Record alloc] init];
-//            _record.time = [CommonCore currentTime];
-//            _record.own_id = userID;
-//            _record.report = [[HealthReportManager sharedManager]saveUserDataToSqlite:_record.time];
-//            [[DataBase sharedDataBase] addRecord:_record toPerson:_person];
-//            _reportResultLabel.text = @"全部检测完成";
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"报告生成成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//            [alertView show];
-//            
-//            return;
-//        }else if (sender.tag==2) {
-//            _beginBtn.selected = NO;
-//            _stopBtn.selected = NO;
-//            _saveBtn.selected = NO;
-//            //查看检测报告
-//            QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
-//            healthVC.report = _record.report;
-//            healthVC.hidesBottomBarWhenPushed = YES;
-//            [self.navigationController pushViewController:healthVC animated:YES];
-//            return;
-//        }
-//        
-//    }
-
 - (IBAction)checkBtnClick:(UIButton *)sender {
-    if (![CommonCore queryMessageKey:CurrentUserID]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录账户，再进行检测" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-        return;
-    }
-    else if (!_t.activePeripheral) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-        return;
-    }
-    
-    if (sender.selected == YES) {
-        return;
-    }
-    if (sender.tag == 0) {
-        [self resetAllState];
-        _saveBtn.enabled = NO;
-        _stopBtn.selected = NO;
-        _saveBtn.backgroundColor = grayFontColor;
-        //开启定时器
-        _buttonType = WaitCheck;
-        [_checkTimer setFireDate:[NSDate distantPast]];
-        
-        NSString *fileName;
-        _person = [[DataBase sharedDataBase] getCurrentLoginUser];
-        [self initTitleLabel:_person.name];
-        int rand = arc4random() % 3 + 1;
-        if ([_person.sex isEqualToString:@"女"]) {
-            fileName = [NSString stringWithFormat:@"nv_%d.mp4",rand];
-        }else {
-            fileName = [NSString stringWithFormat:@"man_%d.mp4",rand];
+        if (sender.tag==0) {
+            _checkTime = 0;
+            _shiImageView.image = [UIImage imageNamed:@"6"];
+            _geImageView.image = [UIImage imageNamed:@"0"];
+            
+            _buttonType = StopCheck;
+            [_timer setFireDate:[NSDate distantFuture]];
+            [[QABLEAdapter sharedBLEAdapter] stopCheck];
+            [self.moviePlayer stop];
+            [_gifView stop];
+            _moviePlayer.view.hidden = YES;
+            _beginBtn.selected =NO;
+            _stopBtn.selected = NO;
+            //保存结果
+            _buttonType = SaveCheck;
+            NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];
+            _record = [[Record alloc] init];
+            _record.time = [CommonCore currentTime];
+            _record.own_id = userID;
+            _record.report = [[HealthReportManager sharedManager]saveUserDataToSqlite:_record.time];
+            [[DataBase sharedDataBase] addRecord:_record toPerson:_person];
+            _reportResultLabel.text = @"全部检测完成";
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"报告生成成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alertView show];
+            
+            return;
+        }else if (sender.tag==2) {
+            _beginBtn.selected = NO;
+            _stopBtn.selected = NO;
+            _saveBtn.selected = NO;
+            //查看检测报告
+            QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
+            healthVC.report = _record.report;
+            healthVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:healthVC animated:YES];
+            return;
         }
-        _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
-        NSString *fileString = [DocumentFile ProductPath:fileName];
-        _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
         
-
-    }else if (sender.tag == 1) {
-        _beginBtn.selected = NO;
-        //关闭定时器
-        _buttonType = StopCheck;
-        [_timer setFireDate:[NSDate distantFuture]];
-        [[QABLEAdapter sharedBLEAdapter] stopCheck];
-        [self.moviePlayer stop];
-        _moviePlayer.view.hidden = YES;
-        [_gifView stop];
-
-        
-    }else {
-        _beginBtn.selected = NO;
-        _stopBtn.selected = NO;
-        _saveBtn.selected = NO;
-        //查看检测报告
-//        QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
-        QANewHealthViewController *healthVC = [[QANewHealthViewController alloc] init];
-        healthVC.report = _record.report;
-        healthVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:healthVC animated:YES]; 
-        return;
-
     }
-//    _lastBtn.selected = NO;
-    sender.selected = YES;
-//    _lastBtn = sender;
-}
+
+//- (IBAction)checkBtnClick:(UIButton *)sender {
+//    if (![CommonCore queryMessageKey:CurrentUserID]) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录账户，再进行检测" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//        [alertView show];
+//        return;
+//    }
+//    else if (!_t.activePeripheral) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//        [alertView show];
+//        return;
+//    }
+//    
+//    if (sender.selected == YES) {
+//        return;
+//    }
+//    if (sender.tag == 0) {
+//        [self resetAllState];
+//        _saveBtn.enabled = NO;
+//        _stopBtn.selected = NO;
+//        _saveBtn.backgroundColor = grayFontColor;
+//        //开启定时器
+//        _buttonType = WaitCheck;
+//        [_checkTimer setFireDate:[NSDate distantPast]];
+//        
+//        NSString *fileName;
+//        _person = [[DataBase sharedDataBase] getCurrentLoginUser];
+//        [self initTitleLabel:_person.name];
+//        int rand = arc4random() % 3 + 1;
+//        if ([_person.sex isEqualToString:@"女"]) {
+//            fileName = [NSString stringWithFormat:@"nv_%d.mp4",rand];
+//        }else {
+//            fileName = [NSString stringWithFormat:@"man_%d.mp4",rand];
+//        }
+//        _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
+//        NSString *fileString = [DocumentFile ProductPath:fileName];
+//        _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
+//        
+//
+//    }else if (sender.tag == 1) {
+//        _beginBtn.selected = NO;
+//        //关闭定时器
+//        _buttonType = StopCheck;
+//        [_timer setFireDate:[NSDate distantFuture]];
+//        [[QABLEAdapter sharedBLEAdapter] stopCheck];
+//        [self.moviePlayer stop];
+//        _moviePlayer.view.hidden = YES;
+//        [_gifView stop];
+//
+//        
+//    }else {
+//        _beginBtn.selected = NO;
+//        _stopBtn.selected = NO;
+//        _saveBtn.selected = NO;
+//        //查看检测报告
+////        QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
+//        QANewHealthViewController *healthVC = [[QANewHealthViewController alloc] init];
+//        healthVC.report = _record.report;
+//        healthVC.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:healthVC animated:YES]; 
+//        return;
+//
+//    }
+////    _lastBtn.selected = NO;
+//    sender.selected = YES;
+////    _lastBtn = sender;
+//}
 
 
 /* 复位状态*/
