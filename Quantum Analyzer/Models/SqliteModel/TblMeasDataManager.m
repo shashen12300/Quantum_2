@@ -67,7 +67,7 @@ static TblMeasDataManager *_sTblMeasDataManager = nil;
         weight_type = 0;
     }else if ([type isEqualToString:@"轻胖"]) {
         weight_type = 1;
-    }else if ([type isEqualToString:@"重胖"]) {
+    }else {
         weight_type = 2;
     }
     NSString *sqliteStr = [NSString stringWithFormat:@"select * from TblMeasData where n_Item_Sub_ID= %@ and n_Weight_Type = %ld and n_Age_Range_Low < %@ and n_Age_Range_High >= %@",subItemID,weight_type,age,age];

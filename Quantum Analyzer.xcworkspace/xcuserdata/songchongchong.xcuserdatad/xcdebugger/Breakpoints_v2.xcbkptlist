@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515234946.308044"
+            timestampString = "515321790.211005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "599"
-            endingLineNumber = "599"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
             landmarkName = "-creatCollectDataHtml:"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515234946.308044"
+            timestampString = "515321790.211005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "-saveUserDataToSqlite:"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515234946.308044"
+            timestampString = "515321790.211005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
+            startingLineNumber = "613"
+            endingLineNumber = "613"
             landmarkName = "-creatCollectDataHtml:"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515234946.308044"
+            timestampString = "515321790.211005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "666"
-            endingLineNumber = "666"
+            startingLineNumber = "728"
+            endingLineNumber = "728"
             landmarkName = "-creatNewCollectDataHtml:"
             landmarkType = "7">
          </BreakpointContent>
@@ -324,12 +324,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515234946.308044"
+            timestampString = "515321790.211005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "658"
-            endingLineNumber = "658"
+            startingLineNumber = "720"
+            endingLineNumber = "720"
             landmarkName = "-creatNewCollectDataHtml:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum Analyzer/Controllers/Health/QAHealthViewController.m"
+            timestampString = "515300615.924335"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum Analyzer/Controllers/Health/QAHealthViewController.m"
+            timestampString = "515300616.932977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
+            timestampString = "515321782.295668"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "-getCheckReportGraphHtml:RecordTime:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
+            timestampString = "515321989.073405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-getCheckReportGraphHtml:RecordTime:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

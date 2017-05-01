@@ -356,6 +356,9 @@ static HealthReportManager *_healthReportManager = nil;
         if ([subItemCase isKindOfClass:[TblSubItemCase class]]) {
             TblMeasData *measData = [[TblMeasDataManager sharedManager] getHealthStateSubItemID:subItemCase.n_SubItemID Age:person.age type:person.health];
             NSInteger n_Result = [measData.n_Result integerValue];
+            if ([subItemCase.n_SubItemID isEqualToString:@"166"]) {
+                
+            }
             ReportGraphData *report = [[ReportGraphData alloc] init];
             NSInteger minValue=0,maxValue=0;
             if ([subItemCase.n_NormaBegin isEqualToString:@"0"]) {
@@ -389,15 +392,37 @@ static HealthReportManager *_healthReportManager = nil;
                     }
                     case 3:
                     {
-                        minValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
-                        maxValue = subItemCase.db_SubItemVal0 < subItemCase.db_SubItemVal3 ? minValue + 1000 : MAX(minValue - 1000,1000/arc4random());
+//                        minValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+//                        
+//                        maxValue = subItemCase.db_SubItemVal0 < subItemCase.db_SubItemVal3 ? minValue - 200 : MAX(minValue - 1000,1000/arc4random());
+                        if ([subItemCase.db_SubItemVal2 floatValue]<[subItemCase.db_SubItemVal3 floatValue]) { //比最大值小20%内为重度异常
+                            
+                            NSInteger length = ([subItemCase.db_SubItemVal3 floatValue] - [subItemCase.db_SubItemVal2 floatValue])*1000;
+                            maxValue = [subItemCase.db_SubItemVal3 floatValue]*1000 + length*0.2;
+                            minValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+                            
+                        }else {
+                            
+                            NSInteger length = ([subItemCase.db_SubItemVal2 floatValue] - [subItemCase.db_SubItemVal3 floatValue])*1000;
+                            
+                            minValue = [subItemCase.db_SubItemVal3 floatValue]*1000 - length*0.2;
+                            maxValue = [subItemCase.db_SubItemVal3 floatValue]*1000;
+                        }
+                        
                         report.resultState = [self getCheckResultColor:subItemCase.str_SeriousCall State:CHECK_RESULT_MAX_ABNORMAL];
                         report.resultDescription = subItemCase.str_SeriousCall;
 
                         break;
                     }
                     default:
-                    break;
+                    {
+                        minValue = [subItemCase.db_SubItemVal0 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_NormalCall State:CHECK_RESULT_NORMAL];
+                        report.resultDescription = subItemCase.str_NormalCall;
+                        break;
+
+                    }
                 }
                 
                 if (minValue > maxValue) {
@@ -405,17 +430,45 @@ static HealthReportManager *_healthReportManager = nil;
                     minValue = maxValue;
                     maxValue = tempValue;
                 }
-                NSInteger lengthValue = maxValue - minValue;
-                CGFloat realValue = (minValue + arc4random()%lengthValue)/1000.0;
-                report.name = subItemCase.str_SubItemName;
-                report.minValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
-                report.maxValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
-                report.realValue = [NSString stringWithFormat:@"%.3f",realValue];
-                report.minAbnormalValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
-                report.maxAbnormalValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal3 floatValue])];
-                NSString *subItemStr = [self graphHtml:report];
-                htmlStr = [htmlStr stringByAppendingString:subItemStr];
                 
+                if (minValue<0) {
+                    minValue = 0;
+                }
+                
+                    NSInteger lengthValue = maxValue - minValue;
+                    CGFloat realValue = (minValue + arc4random()%lengthValue)/1000.0;
+                    report.name = subItemCase.str_SubItemName;
+                    report.minValue = [NSString stringWithFormat:@"%.3f",MIN([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
+                    report.maxValue = [NSString stringWithFormat:@"%.3f",MAX([subItemCase.db_SubItemVal0 floatValue], [subItemCase.db_SubItemVal1 floatValue])];
+                    report.realValue = [NSString stringWithFormat:@"%.3f",realValue];
+                
+                
+                if ([subItemCase.db_SubItemVal2 floatValue]<[subItemCase.db_SubItemVal3 floatValue]) {
+                    CGFloat minLength = [subItemCase.db_SubItemVal1 floatValue] - [subItemCase.db_SubItemVal0 floatValue];
+                    CGFloat maxLength = [subItemCase.db_SubItemVal3 floatValue] - [subItemCase.db_SubItemVal2 floatValue];
+                    CGFloat abnormalMinValue = [subItemCase.db_SubItemVal0 floatValue] - minLength*0.2;
+                    CGFloat abnormalMaxValue = [subItemCase.db_SubItemVal3 floatValue] + maxLength*0.2;
+                    abnormalMinValue = abnormalMinValue>0?abnormalMinValue:0;
+                    abnormalMaxValue = abnormalMaxValue>0?abnormalMaxValue:0;
+                    report.minAbnormalValue = [NSString stringWithFormat:@"%.3f",abnormalMinValue];
+                    report.maxAbnormalValue = [NSString stringWithFormat:@"%.3f",abnormalMaxValue];
+                }else {
+                    
+                    CGFloat minLength = [subItemCase.db_SubItemVal2 floatValue] - [subItemCase.db_SubItemVal3 floatValue];
+                    CGFloat maxLength = [subItemCase.db_SubItemVal0 floatValue] - [subItemCase.db_SubItemVal1 floatValue];
+                    CGFloat abnormalMinValue = [subItemCase.db_SubItemVal3 floatValue] - minLength*0.2;
+                    CGFloat abnormalMaxValue = [subItemCase.db_SubItemVal0 floatValue] + maxLength*0.2;
+                    abnormalMinValue = abnormalMinValue>0?abnormalMinValue:0;
+                    abnormalMaxValue = abnormalMaxValue>0?abnormalMaxValue:0;
+                    report.minAbnormalValue = [NSString stringWithFormat:@"%.3f",abnormalMinValue];
+                    report.maxAbnormalValue = [NSString stringWithFormat:@"%.3f",abnormalMaxValue];
+                
+                }
+
+                    NSString *subItemStr = [self graphHtml:report];
+                    htmlStr = [htmlStr stringByAppendingString:subItemStr];
+                
+
                 if (n_Result >= 2) {
 //                    CollectModel *collect = [[CollectModel alloc] init];
 //                    collect.n_MainItemID = mainItemID;
@@ -433,6 +486,7 @@ static HealthReportManager *_healthReportManager = nil;
                     collect.n_Result = measData.n_Result;
                     [[HealthReportManager sharedManager] addNewCollection:collect];
                 }
+                
             }
             else {
                 
@@ -466,7 +520,15 @@ static HealthReportManager *_healthReportManager = nil;
                         break;
                     }
                     default:
-                    break;
+                    {
+                        minValue = [subItemCase.db_SubItemVal1 floatValue]*1000;
+                        maxValue = [subItemCase.db_SubItemVal2 floatValue]*1000;
+                        report.resultState = [self getCheckResultColor:subItemCase.str_NormalCall State:CHECK_RESULT_NORMAL];
+                        report.resultDescription = subItemCase.str_NormalCall;
+                        
+                        break;
+                    }
+                    
                 }
                 
                 if (minValue > maxValue) {
@@ -635,7 +697,7 @@ static HealthReportManager *_healthReportManager = nil;
     NSString *htmlString2=@"var subHealthList = [";
     for (int i = 1 ; i < 50; ++i) {
         NSString *reportID = [NSString stringWithFormat:@"%d",i];
-        NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"3"];
+        NSArray *collects = [[HealthReportManager sharedManager] getCollectResult:reportID Result:@"2"];
         if (collects.count >0) {
             TblSuggest *suggest = [[TblSuggestManager sharedManager] getSuggests:reportID];
             for (int index = 0; index < collects.count; ++index) {
