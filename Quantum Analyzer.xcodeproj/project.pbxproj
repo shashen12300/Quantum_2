@@ -882,7 +882,7 @@
 				TargetAttributes = {
 					A0C768B41DF3F2CB009380D6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = GQ5DN2772Z;
+						DevelopmentTeam = J6CLJCK3W3;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1236,17 +1236,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = GQ5DN2772Z;
+				DEVELOPMENT_TEAM = J6CLJCK3W3;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.cpmp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e86523e-1791-4e0f-9b5f-ba83da570117";
-				PROVISIONING_PROFILE_SPECIFIER = "phonepost test developer profile";
+				PROVISIONING_PROFILE = "45c03326-aa33-4344-a2c7-0947c0d2bdc4";
+				PROVISIONING_PROFILE_SPECIFIER = "phone post developer profile";
 			};
 			name = Debug;
 		};
@@ -1256,17 +1256,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = GQ5DN2772Z;
+				DEVELOPMENT_TEAM = J6CLJCK3W3;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.cpmp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23fa9f88-1ea6-4458-97c8-afd852057da2";
-				PROVISIONING_PROFILE_SPECIFIER = "chinapost test distribution profile";
+				PROVISIONING_PROFILE = "9a0416b8-bab1-4b03-8e08-75ec4715b39c";
+				PROVISIONING_PROFILE_SPECIFIER = "phone post Distribution profile";
 			};
 			name = Release;
 		};
@@ -1317,17 +1317,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = GQ5DN2772Z;
+				DEVELOPMENT_TEAM = J6CLJCK3W3;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quantum Analyzer/Quantum Analyzer-Prefix.pch";
 				INFOPLIST_FILE = "Quantum Analyzer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chinapost.cpmp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f5c54273-1693-4c9a-9477-d692467d7e3e";
-				PROVISIONING_PROFILE_SPECIFIER = "chinapost test ad hoc profile";
+				PROVISIONING_PROFILE = "a219554f-5224-417e-856b-a2255ec97ee3";
+				PROVISIONING_PROFILE_SPECIFIER = "phone post ad hoc porfile";
 			};
 			name = "ad Hoc";
 		};
