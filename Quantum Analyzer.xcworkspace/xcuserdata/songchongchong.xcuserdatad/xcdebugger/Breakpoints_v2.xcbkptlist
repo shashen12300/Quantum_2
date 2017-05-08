@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/BeginCheck/QABeginCheckViewController.m"
-            timestampString = "514542286.837861"
+            timestampString = "515940576.974785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "-OnReadChar:"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/BeginCheck/QABeginCheckViewController.m"
-            timestampString = "514542286.837861"
+            timestampString = "515940576.974785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
             landmarkName = "-OnReadChar:"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/BeginCheck/QABeginCheckViewController.m"
-            timestampString = "514542286.837861"
+            timestampString = "515940576.974785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "-OnReadChar:"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/Health/QANewHealthViewController.m"
-            timestampString = "514548533.475824"
+            timestampString = "515940866.372214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/Health/QANewHealthViewController.m"
-            timestampString = "514548533.475824"
+            timestampString = "515940866.372214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum Analyzer/Controllers/Health/QANewHealthViewController.m"
-            timestampString = "514548533.475824"
+            timestampString = "515940866.372214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,22 +362,6 @@
             startingLineNumber = "85"
             endingLineNumber = "85"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Quantum Analyzer/Models/Health/HealthReportManager.m"
-            timestampString = "515321782.295668"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "-getCheckReportGraphHtml:RecordTime:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

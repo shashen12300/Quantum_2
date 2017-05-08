@@ -33,11 +33,12 @@
     layout.minimumInteritemSpacing = 1;
     layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
     _collectionView.collectionViewLayout = layout;
+    _collectionView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     if (_report) {
         _dictionary = [[NSDictionary alloc] init];
         _dictionary = [CommonCore objectWithJson:_report];
     }
-    _collectionView.backgroundColor = [UIColor purpleColor];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -30,7 +30,7 @@
     self.addBtn.layer.cornerRadius = 18;
     self.autoHeight.constant = DScreenWidth/381*253;
     [QABLEAdapter sharedBLEAdapter].addViewController = self;
-    [CommonCore setNavRight:self image:@"" title:@"s测试" action:@selector(ceshiWebView)];
+//    [CommonCore setNavRight:self image:@"" title:@"s测试" action:@selector(ceshiWebView)];
 
 }
 
