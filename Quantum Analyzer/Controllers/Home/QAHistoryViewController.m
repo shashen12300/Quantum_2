@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 @property (nonatomic, strong) Person *person;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation QAHistoryViewController
@@ -29,13 +30,20 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview:tableView];
+    _tableView = tableView;
     _person = [[DataBase sharedDataBase]getPersonWithID:[CommonCore queryMessageKey:CurrentUserID]];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.sourceArray = [[DataBase sharedDataBase] getAllRecordsFromPerson:_person];
+    NSMutableArray *array = [[DataBase sharedDataBase] getAllRecordsFromPerson:_person];
+    [_sourceArray removeAllObjects];
+    for (int index=1; index<=array.count; ++index) {
+        [self.sourceArray addObject:array[array.count-index]];
+    }
+    [_tableView reloadData];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

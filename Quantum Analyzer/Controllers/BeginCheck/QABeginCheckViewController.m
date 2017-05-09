@@ -126,11 +126,12 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     _checkTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:[QABLEAdapter sharedBLEAdapter] selector:@selector(voltageCheck) userInfo:nil repeats:YES];
     [_checkTimer setFireDate:[NSDate distantFuture]];
     
-    UIWebView *webView = [[UIWebView alloc] init];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单"ofType:@"htm"];
-    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-    [webView loadHTMLString:template baseURL:baseURL];
+    /* 修复webView加载慢的问题*/
+//    UIWebView *webView = [[UIWebView alloc] init];
+//    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单"ofType:@"htm"];
+//    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+//    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+//    [webView loadHTMLString:template baseURL:baseURL];
 
 }
 
@@ -253,6 +254,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         _beginBtn.selected = NO;
         //关闭定时器
         _buttonType = StopCheck;
+        _checkTime = 0;
         [_timer setFireDate:[NSDate distantFuture]];
         [[QABLEAdapter sharedBLEAdapter] stopCheck];
         [self.moviePlayer stop];

@@ -112,6 +112,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self showHint:@"蓝牙连接成功"];
     }
     cell.textLabel.text = object.name;
     return cell;

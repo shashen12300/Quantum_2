@@ -58,7 +58,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _sourceArray.count+ 1;
+    return _sourceArray.count;
 }
 
 
@@ -69,11 +69,11 @@
     QANewHealthCollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
-    if (indexPath.row == _sourceArray.count) {
-        cell.titleLabel.text = @"量子检测综合报告单";
+    if (indexPath.row == 0) {
+        cell.titleLabel.text = @"量子检测\r\n综合报告单";
     }else {
-        ReportList *reportList = _sourceArray[indexPath.row];
-        cell.titleLabel.text = reportList.reportName;
+        ReportList *reportList = _sourceArray[indexPath.row-1];
+        cell.titleLabel.text = [reportList.reportName stringByReplacingOccurrencesOfString:@"检测报告" withString:@"\r\n检测报告"];//reportList.reportName;
     }
     
 
@@ -86,12 +86,12 @@
     QAWebViewController *webViewVC = [[QAWebViewController alloc] init];
     
     if (_dictionary) {
-        if (indexPath.row == _sourceArray.count) {
+        if (indexPath.row == 0) {
             webViewVC.htmlString = _dictionary[@"量子检测综合报告单"];
-            webViewVC.title = @"量子检测综合报告单";
+            webViewVC.title = @"量子检测\r\n综合报告单";
             
         }else {
-            ReportList *reportList = _sourceArray[indexPath.row];
+            ReportList *reportList = _sourceArray[indexPath.row-1];
             webViewVC.reportList = reportList;
             webViewVC.htmlString = _dictionary[reportList.reportName];
         }
