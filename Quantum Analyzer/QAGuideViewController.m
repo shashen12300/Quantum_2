@@ -134,7 +134,7 @@
     }else {
     
         if ([_passwordTextField.text isEqualToString:@"000000"]) {
-            [CommonCore SaveMessageObject:@"60" key:CheckTime];
+            [CommonCore SaveMessageObject:@"45" key:CheckTime];
             [[NSNotificationCenter defaultCenter] postNotificationName:BeginGuidePage object:nil];
             return;
         }

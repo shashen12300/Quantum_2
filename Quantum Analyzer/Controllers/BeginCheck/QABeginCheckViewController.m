@@ -127,11 +127,11 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     [_checkTimer setFireDate:[NSDate distantFuture]];
     
     /* 修复webView加载慢的问题*/
-//    UIWebView *webView = [[UIWebView alloc] init];
-//    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单"ofType:@"htm"];
-//    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-//    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-//    [webView loadHTMLString:template baseURL:baseURL];
+    UIWebView *webView = [[UIWebView alloc] init];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单"ofType:@"htm"];
+    NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+    [webView loadHTMLString:template baseURL:baseURL];
 
 }
 
@@ -156,8 +156,13 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
         NSString *fileString = [DocumentFile ProductPath:fileName];
         _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
+    }else {
+
+        _moviePlayer.contentURL = [[NSBundle mainBundle] URLForResource:@"man_1.mp4" withExtension:nil];
+        NSString *fileString = [DocumentFile ProductPath:@"man_1.mp4"];
+        _checkPeopleImageView.image = [CommonCore getScreenShotImageFromVideoPath:fileString];
     }
-    
+
     Person *person = [[DataBase sharedDataBase] getCurrentLoginUser];
     if ([person.age intValue] <= 14) {
         _sourceArray = [[ReportListManager sharedManager] getAllChildrenReport];
@@ -232,6 +237,8 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         _saveBtn.enabled = NO;
         _stopBtn.selected = NO;
         _saveBtn.backgroundColor = grayFontColor;
+        _beginBtn.backgroundColor = grayFontColor;
+        _stopBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
         //开启定时器
         _buttonType = WaitCheck;
         [_checkTimer setFireDate:[NSDate distantPast]];
@@ -252,6 +259,8 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 
     }else if (sender.tag == 1) {
         _beginBtn.selected = NO;
+        _beginBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
+        _stopBtn.backgroundColor = grayFontColor;
         //关闭定时器
         _buttonType = StopCheck;
         _checkTime = 0;
@@ -266,6 +275,9 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         _beginBtn.selected = NO;
         _stopBtn.selected = NO;
         _saveBtn.selected = NO;
+        _beginBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
+        _stopBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
+        _saveBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
         //查看检测报告
 //        QAHealthViewController *healthVC = [[QAHealthViewController alloc] init];
         QANewHealthViewController *healthVC = [[QANewHealthViewController alloc] init];
@@ -275,9 +287,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         return;
 
     }
-//    _lastBtn.selected = NO;
     sender.selected = YES;
-//    _lastBtn = sender;
 }
 
 
@@ -407,7 +417,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
 
 -(void)setPointButtonAction {
     _checkTime++;
-    NSInteger count = 60 - _checkTime;
+    NSInteger count = _checkTime;
     NSString *shi,*ge;
     shi = [NSString stringWithFormat:@"%ld",count/10];
     ge = [NSString stringWithFormat:@"%ld",count%10];
@@ -415,7 +425,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     _geImageView.image = [UIImage imageNamed:ge];
     if (_checkTime >=[[CommonCore queryMessageKey:CheckTime] integerValue]) {
         _checkTime = 0;
-        _shiImageView.image = [UIImage imageNamed:@"6"];
+        _shiImageView.image = [UIImage imageNamed:@"0"];
         _geImageView.image = [UIImage imageNamed:@"0"];
         
         _buttonType = StopCheck;
@@ -426,6 +436,8 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         _moviePlayer.view.hidden = YES;
         _beginBtn.selected =NO;
         _stopBtn.selected = NO;
+        _beginBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
+        _stopBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
         //保存结果
         _buttonType = SaveCheck;
         NSNumber *userID = [CommonCore queryMessageKey:CurrentUserID];

@@ -54,7 +54,7 @@
     settingVC.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     QANavigationController *settingNav = [[QANavigationController alloc] initWithRootViewController:settingVC];
 
-    NSArray *array = [NSArray arrayWithObjects:addNav,beginNav,homeNav,settingNav, nil];
+    NSArray *array = [NSArray arrayWithObjects:homeNav,beginNav,addNav,settingNav, nil];
     self.viewControllers = array;
     self.selectedIndex = 0;
     self.tabBar.translucent = NO;

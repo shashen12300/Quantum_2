@@ -30,7 +30,7 @@
     //设置导航栏返回按钮的颜色
     [navBar setTintColor:[UIColor whiteColor]];
     //隐藏导航栏的返回按钮文字
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
