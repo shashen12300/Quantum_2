@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A0C768B41DF3F2CB009380D6"
                BuildableName = "Quantum Analyzer.app"
                BlueprintName = "Quantum Analyzer"
-               ReferencedContainer = "container:0.xcodeproj">
+               ReferencedContainer = "container:Quantum Analyzer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "A0C768B41DF3F2CB009380D6"
             BuildableName = "Quantum Analyzer.app"
             BlueprintName = "Quantum Analyzer"
-            ReferencedContainer = "container:0.xcodeproj">
+            ReferencedContainer = "container:Quantum Analyzer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "A0C768B41DF3F2CB009380D6"
             BuildableName = "Quantum Analyzer.app"
             BlueprintName = "Quantum Analyzer"
-            ReferencedContainer = "container:0.xcodeproj">
+            ReferencedContainer = "container:Quantum Analyzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "A0C768B41DF3F2CB009380D6"
             BuildableName = "Quantum Analyzer.app"
             BlueprintName = "Quantum Analyzer"
-            ReferencedContainer = "container:0.xcodeproj">
+            ReferencedContainer = "container:Quantum Analyzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
