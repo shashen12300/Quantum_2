@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     
     /* 修复webView加载慢的问题*/
     UIWebView *webView = [[UIWebView alloc] init];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单"ofType:@"htm"];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"JLZ检测综合报告单"ofType:@"htm"];
     NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
     [webView loadHTMLString:template baseURL:baseURL];
@@ -215,6 +215,7 @@ typedef NS_ENUM(NSInteger,Buttonype) {
         }
         
     }
+
 */
 
 - (IBAction)checkBtnClick:(UIButton *)sender {

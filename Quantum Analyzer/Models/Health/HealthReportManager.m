@@ -592,7 +592,7 @@ static HealthReportManager *_healthReportManager = nil;
 //    NSString *collectHtmlString  = [self creatCollectDataHtml:health];
     NSString *collectHtmlString  = [self creatNewCollectDataHtml:health];
 
-    [dictionary setObject:collectHtmlString forKey:@"量子检测综合报告单"];
+    [dictionary setObject:collectHtmlString forKey:@"JLZ检测综合报告单"];
 
     NSString *jsonString = [CommonCore jsonWithArray:dictionary];
     
@@ -652,7 +652,7 @@ static HealthReportManager *_healthReportManager = nil;
     htmlString2 = [htmlString2 stringByAppendingString:@"</TBODY></TABLE>"];
 
     health.table = [htmlString1 stringByAppendingString:htmlString2];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单" ofType:@"htm"];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"JLZ检测综合报告单" ofType:@"htm"];
     NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     template = [template stringByReplacingOccurrencesOfString:@"{{table}}" withString:health.table];
     NSDictionary *renderObject = [CommonCore dictionaryWithModel:health];
@@ -719,7 +719,7 @@ static HealthReportManager *_healthReportManager = nil;
 
 
     health.table = [htmlString1 stringByAppendingString:htmlString2];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"量子检测综合报告单" ofType:@"htm"];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"JLZ检测综合报告单" ofType:@"htm"];
     NSString *template = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     template = [template stringByReplacingOccurrencesOfString:@"{{table}}" withString:health.table];
     NSDictionary *renderObject = [CommonCore dictionaryWithModel:health];

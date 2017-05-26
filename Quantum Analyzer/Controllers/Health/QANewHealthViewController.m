@@ -70,7 +70,7 @@
     cell.backgroundColor = [UIColor whiteColor];
     
     if (indexPath.row == 0) {
-        cell.titleLabel.text = @"量子检测\r\n综合报告单";
+        cell.titleLabel.text = @"JLZ检测\r\n综合报告单";
     }else {
         ReportList *reportList = _sourceArray[indexPath.row-1];
         cell.titleLabel.text = [reportList.reportName stringByReplacingOccurrencesOfString:@"检测报告" withString:@"\r\n检测报告"];//reportList.reportName;
@@ -87,8 +87,8 @@
     
     if (_dictionary) {
         if (indexPath.row == 0) {
-            webViewVC.htmlString = _dictionary[@"量子检测综合报告单"];
-            webViewVC.title = @"量子检测\r\n综合报告单";
+            webViewVC.htmlString = _dictionary[@"JLZ检测综合报告单"];
+            webViewVC.title = @"JLZ检测\r\n综合报告单";
             
         }else {
             ReportList *reportList = _sourceArray[indexPath.row-1];

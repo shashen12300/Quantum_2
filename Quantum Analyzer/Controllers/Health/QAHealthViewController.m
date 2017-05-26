@@ -71,7 +71,7 @@
         cell = [[QAHealthTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     if (indexPath.row == _sourceArray.count) {
-        cell.textLabel.text = @"量子检测综合报告单";
+        cell.textLabel.text = @"JLZ检测综合报告单";
     }else {
         ReportList *reportList = _sourceArray[indexPath.row];
         cell.textLabel.text = reportList.reportName;
@@ -84,8 +84,8 @@
 
     if (_dictionary) {
         if (indexPath.row == _sourceArray.count) {
-            webViewVC.htmlString = _dictionary[@"量子检测综合报告单"];
-            webViewVC.title = @"量子检测综合报告单";
+            webViewVC.htmlString = _dictionary[@"JLZ检测综合报告单"];
+            webViewVC.title = @"JLZ检测综合报告单";
 
         }else {
             ReportList *reportList = _sourceArray[indexPath.row];
