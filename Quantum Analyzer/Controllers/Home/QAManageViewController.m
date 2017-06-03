@@ -74,8 +74,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Person *person = self.sourceArray[indexPath.row];
+    QAManageTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        
+        NSString *messageStr = [NSString stringWithFormat:@"联系电话:%@\r\n备注:%@",person.phoneNumber,person.remark?person.remark:@"无"];
+        UIAlertView *alertView = [[UIAlertView  alloc] initWithTitle:@"用户信息" message:messageStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
     [CommonCore SaveMessageObject:person.ID key:CurrentUserID];
     [_tableView reloadData];
+    
+    
     
 }
 
