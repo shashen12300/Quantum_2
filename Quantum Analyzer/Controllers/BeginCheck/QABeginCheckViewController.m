@@ -459,8 +459,9 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     float rndValue = (((float)arc4random()/0x100000000)*(high_bound-low_bound)+low_bound);
     int intRndValue = (int)(rndValue + 0.5);
     [_graphView setPoint:intRndValue];
-    ReportList *repolist = _sourceArray[count/2%30];
-    if (count%2==1) {
+    ReportList *repolist = _sourceArray[count/(60/_sourceArray.count)%_sourceArray.count];
+    
+    if ((count+1)%(60/_sourceArray.count) !=0) {
         NSString *nameStr = [repolist.reportName substringToIndex:repolist.reportName.length-2];
         _reportResultLabel.text = [NSString stringWithFormat:@"正在进行%@检测......",nameStr];
     }else {

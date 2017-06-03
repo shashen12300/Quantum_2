@@ -170,8 +170,9 @@ static DataBase *_DBCtl = nil;
         person.remark = [res stringForColumn:@"person_remark"];
         person.health = [res stringForColumn:@"person_health"];
         person.age = [res stringForColumn:@"person_age"];
-
-        [dataArray addObject:person];
+        
+        [dataArray insertObject:person atIndex:0];
+//        [dataArray addObject:person];
     }
     
     [_db close];

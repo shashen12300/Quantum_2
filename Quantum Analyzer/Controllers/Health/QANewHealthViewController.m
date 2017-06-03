@@ -88,7 +88,7 @@
     if (_dictionary) {
         if (indexPath.row == 0) {
             webViewVC.htmlString = _dictionary[@"JLZ检测综合报告单"];
-            webViewVC.title = @"JLZ检测\r\n综合报告单";
+            webViewVC.title = @"JLZ检测综合报告单";
             
         }else {
             ReportList *reportList = _sourceArray[indexPath.row-1];
@@ -99,6 +99,7 @@
     
     webViewVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:webViewVC animated:YES];
+    
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

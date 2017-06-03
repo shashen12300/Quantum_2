@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"历史记录";
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DScreenWidth, DScreenHeight) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DScreenWidth, DScreenHeight-64) style:UITableViewStylePlain];
     tableView.tableFooterView = [UIView new];
     tableView.dataSource = self;
     tableView.delegate = self;

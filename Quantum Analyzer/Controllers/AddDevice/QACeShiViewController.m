@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, DScreenWidth, DScreenHeight)];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, DScreenWidth, DScreenHeight-64)];
     [self.view addSubview:webView];
     NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"1-心脑血管检测报告的-副本6" ofType:@"htm"];

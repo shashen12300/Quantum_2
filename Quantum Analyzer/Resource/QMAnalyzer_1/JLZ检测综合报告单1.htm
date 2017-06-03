@@ -22,309 +22,309 @@
     </script>
     <style>
         body {
-
+            
         }
-
-        .title {
-            FONT-SIZE: 0.18rem;
-            FONT-FAMILY: "黑体";
-        }
-
-
-        font {
-            font-size: 0.35rem;
-            font-weight: 600;
-        }
-
-        font strong {
-            font-size: 0.22rem;
-            font-weight: 600;
-        }
-        table{
-            position: relative;
-        }
-        .xtable {
-            BORDER-RIGHT: #000000 1px solid;
-            BORDER-TOP: #ffffff 0px;
-            BORDER-LEFT: #000000 1px solid;
-            BORDER-BOTTOM: #000000 1px solid;
-            cellSpacing: 4;
-            cellPadding: 0;
-            width: 5.9rem;
-            margin: 0 auto;
-            background-color: #EBF5FB;
-            box-sizing: border-box;
-        }
-
-        TD {
-            FONT-SIZE: 0.14rem;
-        }
-
-        ul {
-            list-style: none;
-            /*float: left;*/
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            margin: 0;
-            padding: 0;
-        }
-
-        .troubleTitle, .subHealthTitle {
-            font-size: 0.18rem;
-            height: 0.5rem;
-            display: inline-block;
-            width: 88%;
-            text-align: center;
-
-        }
-
-        #trouble, .subHealth {
-            overflow: hidden;
-            margin: 0 auto;
-            margin-left: 0.15rem;
-        }
-
-        .parentsLi {
-            display: block;
-            line-height: 0;
-            float: left;
-            margin-bottom: -0.4rem;
-            width: 6rem;
-        }
-
-        .trouble .title, .subHealth .title {
-            margin-top: 0.2rem;
-            font-size: 0.22rem;
-            font-weight: 600;
-            padding-left: 0.1rem;
-        }
-
-        #trouble .troubleListLine li, #subHealth .subHealthListLine li {
-            margin: 0;
-            padding: 0;
-            width: 2.3rem;
-            float: left;
-            margin: 0;
-            list-style: none;
-            margin: 0 0.6rem 0.5rem 0;
-            position: relative;
-            height: 1.2rem;
-            box-sizing: border-box;
-            font-size: 0.16rem;
-            background-size: cover;
-            background-image: url("big.png");
-            background-color: black;
-
-
-        }
-
-        .troubleListLine {
-            float: left;
-
-        }
-
-        .troubleListLine li .canvas, .subHealthListLine li .canvas {
-            width: 2.3rem;
-            height: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /*.troubleDetail {*/
-        /*margin-top: 0.1rem;*/
-        /*}*/
-
-        .troubleListLine .abnormal_min, .subHealthListLine .abnormal_min {
-            position: absolute;
-            top: 1.05rem;
-            left: 2.35rem;
-            color: red;
-        }
-
-        .troubleListLine li .normal_min, .subHealthListLine li .normal_min {
-            position: absolute;
-            left: 2.35rem;
-            top: 0.7rem;
-            color: lawngreen;
-
-        }
-
-        .troubleListLine li .normal_max, .subHealthListLine li .normal_max {
-            position: absolute;
-            left: 2.35rem;
-            top: 0.3rem;
-            color: lawngreen;
-        }
-
-        .troubleListLine li .abnormal_max, .subHealthListLine li .abnormal_max {
-            position: absolute;
-            left: 2.35rem;
-            top: -0.05rem;
-            color: red;
-
-        }
-
-        .troubleListLine li .reality, .subHealthListLine li .reality {
-            position: absolute;
-            left: 2.35rem;;
-            top: 0.5rem;
-            color: blue;
-        }
-
-        .troubleListLine li .name, .subHealthListLine li .name {
-            position: absolute;
-            top: -0.2rem;
-            left: 0;
-            width: 100%;
-            font-size: 0.12rem;
-            /*text-align: center;*/
-        }
-
-        .troubleListLine li .result, .subHealthListLine li .result {
-            position: absolute;
-            top: -0.2rem;
-            left: 0;
-            text-align: right;
-            width: 100%;
-            font-size: 0.12rem;
-
-        }
-        li span{
-            line-height: 0.18rem;
-        }
-
-        #box {
-            position: absolute;
-            left: 0;
-            background-color: black;
-            z-index: 999;
-            display: none;
-            background: #fff;
-            background-color: #000;
-            padding: 0 1.2rem;
-            box-sizing: border-box;
-            width: 6.4rem;
-            height: 11.36rem;
-        }
-
-        #box .container {
-            width: 4rem;
-            height: 8.34rem;
-            background: url("big.png") no-repeat;
-            background-color: #000000;
-            background-size: cover;
-            position: relative;
-        }
-
-        #box .container .bigCanvas {
-            width: 4rem;
-            height: 8.34rem;
-        }
-
-        #box .container .bigName {
-            transform-origin: right bottom;
-            position: absolute;
-            right: -0.1rem;
-            top: 4.5rem;
-            transform: rotate(90deg);
-            font-size: 0.35rem;
-            color: #fff;
-        }
-
-        #box .bigNormal_min {
-            color: lawngreen;
-            font-size: 0.35rem;
-            transform: rotate(90deg);
-            position: absolute;
-            right: 2.094rem;
-            top: 8.95rem;
-            width: 1.3rem;
-        }
-
-        #box .bigNormal_max {
-            color: lawngreen;
-            position: absolute;
-            right: 0.69rem;
-            top: 8.95rem;
-            font-size: 0.35rem;
-            transform: rotate(90deg);
-            width: 1.3rem;
-        }
-
-        #box .bigAbnormal_min {
-            position: absolute;
-            transform: rotate(90deg);
-            right: 3.19rem;
-            top: 8.95rem;
-            color: red;
-            font-size: 0.35rem;
-            width: 1.3rem;
-        }
-
-        #box .bigAbnormal_max {
-            position: absolute;
-            transform: rotate(90deg);
-            right: -0.48rem;
-            top: 8.95rem;
-            color: red;
-            font-size: 0.35rem;
-            width: 1.3rem;
-        }
-
-        #box .bigReality {
-            position: absolute;
-            transform: rotate(90deg);
-            top: 8.95rem;
-            font-size: 0.35rem;
-            width: 1.3rem;
-        }
-
-        #box .bigResult {
-            transform-origin: right bottom;
-            position: absolute;
-            transform: rotate(90deg);
-            top: 8rem;
-            font-size: 0.35rem;
-            right: -0.05rem;
-
-        }
-
-        .wtable {
-            width: 5.9rem;
-            margin: 0 auto;
-            BORDER-RIGHT: #000000 1px solid;
-            BORDER-TOP: #000000 1px solid;
-            BORDER-LEFT: #000000 1px solid;
-            BORDER-BOTTOM: #000000 1px solid;
-        }
-        .subTable{
-            margin-top: 0.3rem;
-        }
-        .bigTable{
-            width: 6rem;
-            margin: 0 auto;
-        }
-
-        .boxBorder{
-            width: 100%;
-            height: 100%;
-            border: 1px solid #000;
-            position: absolute;
-            left: 0;
-            top: 0;
-            box-sizing: border-box;
-
-        }
-        .warmTips{
-            width: 5.9rem;
-        }
-        .wtable td b{
-            font-size: 0.16rem;
-        }
+    
+    .title {
+        FONT-SIZE: 0.18rem;
+        FONT-FAMILY: "黑体";
+    }
+    
+    
+    font {
+        font-size: 0.35rem;
+        font-weight: 600;
+    }
+    
+    font strong {
+        font-size: 0.22rem;
+        font-weight: 600;
+    }
+    table{
+        position: relative;
+    }
+    .xtable {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #ffffff 0px;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 1px solid;
+        cellSpacing: 4;
+        cellPadding: 0;
+        width: 5.9rem;
+        margin: 0 auto;
+        background-color: #EBF5FB;
+        box-sizing: border-box;
+    }
+    
+    TD {
+        FONT-SIZE: 0.14rem;
+    }
+    
+    ul {
+        list-style: none;
+        /*float: left;*/
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .troubleTitle, .subHealthTitle {
+        font-size: 0.18rem;
+        height: 0.5rem;
+        display: inline-block;
+        width: 88%;
+        text-align: center;
+        
+    }
+    
+    #trouble, .subHealth {
+        overflow: hidden;
+        margin: 0 auto;
+        margin-left: 0.15rem;
+    }
+    
+    .parentsLi {
+        display: block;
+        line-height: 0;
+        float: left;
+        margin-bottom: -0.4rem;
+        width: 6rem;
+    }
+    
+    .trouble .title, .subHealth .title {
+        margin-top: 0.2rem;
+        font-size: 0.22rem;
+        font-weight: 600;
+        padding-left: 0.1rem;
+    }
+    
+    #trouble .troubleListLine li, #subHealth .subHealthListLine li {
+        margin: 0;
+        padding: 0;
+        width: 2.3rem;
+        float: left;
+        margin: 0;
+        list-style: none;
+        margin: 0 0.6rem 0.5rem 0;
+        position: relative;
+        height: 1.2rem;
+        box-sizing: border-box;
+        font-size: 0.16rem;
+        background-size: cover;
+        background-image: url("big.png");
+        background-color: black;
+        
+        
+    }
+    
+    .troubleListLine {
+        float: left;
+        
+    }
+    
+    .troubleListLine li .canvas, .subHealthListLine li .canvas {
+        width: 2.3rem;
+        height: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    /*.troubleDetail {*/
+    /*margin-top: 0.1rem;*/
+    /*}*/
+    
+    .troubleListLine .abnormal_min, .subHealthListLine .abnormal_min {
+        position: absolute;
+        top: 1.05rem;
+        left: 2.35rem;
+        color: red;
+    }
+    
+    .troubleListLine li .normal_min, .subHealthListLine li .normal_min {
+        position: absolute;
+        left: 2.35rem;
+        top: 0.7rem;
+        color: lawngreen;
+        
+    }
+    
+    .troubleListLine li .normal_max, .subHealthListLine li .normal_max {
+        position: absolute;
+        left: 2.35rem;
+        top: 0.3rem;
+        color: lawngreen;
+    }
+    
+    .troubleListLine li .abnormal_max, .subHealthListLine li .abnormal_max {
+        position: absolute;
+        left: 2.35rem;
+        top: -0.05rem;
+        color: red;
+        
+    }
+    
+    .troubleListLine li .reality, .subHealthListLine li .reality {
+        position: absolute;
+        left: 2.35rem;;
+        top: 0.5rem;
+        color: blue;
+    }
+    
+    .troubleListLine li .name, .subHealthListLine li .name {
+        position: absolute;
+        top: -0.2rem;
+        left: 0;
+        width: 100%;
+        font-size: 0.12rem;
+        /*text-align: center;*/
+    }
+    
+    .troubleListLine li .result, .subHealthListLine li .result {
+        position: absolute;
+        top: -0.2rem;
+        left: 0;
+        text-align: right;
+        width: 100%;
+        font-size: 0.12rem;
+        
+    }
+    li span{
+        line-height: 0.18rem;
+    }
+    
+    #box {
+        position: absolute;
+        left: 0;
+        background-color: black;
+        z-index: 999;
+        display: none;
+        background: #fff;
+        background-color: #000;
+        padding: 0 1.2rem;
+        box-sizing: border-box;
+        width: 6.4rem;
+        height: 11.36rem;
+    }
+    
+    #box .container {
+        width: 4rem;
+        height: 8.34rem;
+        background: url("big.png") no-repeat;
+        background-color: #000000;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #box .container .bigCanvas {
+        width: 4rem;
+        height: 8.34rem;
+    }
+    
+    #box .container .bigName {
+        transform-origin: right bottom;
+        position: absolute;
+        right: -0.1rem;
+        top: 4.5rem;
+        transform: rotate(90deg);
+        font-size: 0.35rem;
+        color: #fff;
+    }
+    
+    #box .bigNormal_min {
+        color: lawngreen;
+        font-size: 0.35rem;
+        transform: rotate(90deg);
+        position: absolute;
+        right: 2.094rem;
+        top: 8.95rem;
+        width: 1.3rem;
+    }
+    
+    #box .bigNormal_max {
+        color: lawngreen;
+        position: absolute;
+        right: 0.69rem;
+        top: 8.95rem;
+        font-size: 0.35rem;
+        transform: rotate(90deg);
+        width: 1.3rem;
+    }
+    
+    #box .bigAbnormal_min {
+        position: absolute;
+        transform: rotate(90deg);
+        right: 3.19rem;
+        top: 8.95rem;
+        color: red;
+        font-size: 0.35rem;
+        width: 1.3rem;
+    }
+    
+    #box .bigAbnormal_max {
+        position: absolute;
+        transform: rotate(90deg);
+        right: -0.48rem;
+        top: 8.95rem;
+        color: red;
+        font-size: 0.35rem;
+        width: 1.3rem;
+    }
+    
+    #box .bigReality {
+        position: absolute;
+        transform: rotate(90deg);
+        top: 8.95rem;
+        font-size: 0.35rem;
+        width: 1.3rem;
+    }
+    
+    #box .bigResult {
+        transform-origin: right bottom;
+        position: absolute;
+        transform: rotate(90deg);
+        top: 8rem;
+        font-size: 0.35rem;
+        right: -0.05rem;
+        
+    }
+    
+    .wtable {
+        width: 5.9rem;
+        margin: 0 auto;
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #000000 1px solid;
+        BORDER-LEFT: #000000 1px solid;
+        BORDER-BOTTOM: #000000 1px solid;
+    }
+    .subTable{
+        margin-top: 0.3rem;
+    }
+    .bigTable{
+        width: 6rem;
+        margin: 0 auto;
+    }
+    
+    .boxBorder{
+        width: 100%;
+        height: 100%;
+        border: 1px solid #000;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+        
+    }
+    .warmTips{
+        width: 5.9rem;
+    }
+    .wtable td b{
+        font-size: 0.16rem;
+    }
     </style>
 </head>
 <body>
@@ -438,195 +438,195 @@
 
 </div>
 
-<!--<TR>-->
-<!--<TD><B>大肠蠕动功能系数：</B></TD>-->
-<!--</TR>-->
-<!--<TR>-->
-<!--<TD>大肠有类似的节段性运动和小肠的蠕动，但其频率较慢，适应大肠主要功能是吸收水和临时存储的粪便。如果肠道蠕动速度过慢，粪便水分吸收过多，会引起便秘，其主要表现为：大便次数减少，大便量减少，大便干结，排便用力。</TD>-->
-<!--</TR>-->
+    <!--<TR>-->
+    <!--<TD><B>大肠蠕动功能系数：</B></TD>-->
+    <!--</TR>-->
+    <!--<TR>-->
+    <!--<TD>大肠有类似的节段性运动和小肠的蠕动，但其频率较慢，适应大肠主要功能是吸收水和临时存储的粪便。如果肠道蠕动速度过慢，粪便水分吸收过多，会引起便秘，其主要表现为：大便次数减少，大便量减少，大便干结，排便用力。</TD>-->
+    <!--</TR>-->
 </TABLE>
 <div id="box"></div>
 <script>
-
+  
   {{table}}
-    <!--    var troubleList = [-->
-    <!--        {-->
-    <!--            title: "经络1",-->
-    <!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议1",-->
-    <!--            list: [-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经1",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!---->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶2222",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶1",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶28888888",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--            ]-->
-    <!--        },-->
-    <!--        {-->
-    <!--            title: "大肠检测2",-->
-    <!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议2",-->
-    <!--            list: [-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经333333",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--            ]-->
-    <!--        },-->
-    <!--        {-->
-    <!--            title: "大肠检测3",-->
-    <!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议3",-->
-    <!--            list: [-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!---->
-    <!--            ]-->
-    <!--        },-->
-    <!--    ]-->
+<!--    var troubleList = [-->
+<!--        {-->
+<!--            title: "经络1",-->
+<!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议1",-->
+<!--            list: [-->
+<!--                {-->
+<!--                    name: "手太阳小肠经1",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!---->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶2222",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶1",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶28888888",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--            ]-->
+<!--        },-->
+<!--        {-->
+<!--            title: "大肠检测2",-->
+<!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议2",-->
+<!--            list: [-->
+<!--                {-->
+<!--                    name: "手太阳小肠经333333",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--            ]-->
+<!--        },-->
+<!--        {-->
+<!--            title: "大肠检测3",-->
+<!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议3",-->
+<!--            list: [-->
+<!--                {-->
+<!--                    name: "手太阳小肠经",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!---->
+<!--            ]-->
+<!--        },-->
+<!--    ]-->
 
 
-    <!--    var subHealthList = [-->
-    <!--        {-->
-    <!--            title: '经络5',-->
-    <!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议5",-->
-    <!--            list: [-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--            ]-->
-    <!--        },-->
-    <!--        {-->
-    <!--            title: '经络6',-->
-    <!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议6",-->
-    <!--            list: [-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经55555",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶1111",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "手太阳小肠经6666",-->
-    <!--                    normal_min: 48.264,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 48.264,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 60.001,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--                {-->
-    <!--                    name: "胆固醇结晶1111",-->
-    <!--                    normal_min: 56.749,-->
-    <!--                    normal_max: 65.371,-->
-    <!--                    abnormal_min: 56.749,-->
-    <!--                    abnormal_max: 73.673,-->
-    <!--                    reality: 64.010,-->
-    <!--                    result: "正常(-)",-->
-    <!--                    resultColor: "#00FF00",-->
-    <!--                },-->
-    <!--            ]-->
-    <!--        },-->
-    <!--    ]-->
+<!--    var subHealthList = [-->
+<!--        {-->
+<!--            title: '经络5',-->
+<!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议5",-->
+<!--            list: [-->
+<!--                {-->
+<!--                    name: "手太阳小肠经",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--            ]-->
+<!--        },-->
+<!--        {-->
+<!--            title: '经络6',-->
+<!--            suggestion: "建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议建议6",-->
+<!--            list: [-->
+<!--                {-->
+<!--                    name: "手太阳小肠经55555",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶1111",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "手太阳小肠经6666",-->
+<!--                    normal_min: 48.264,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 48.264,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 60.001,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--                {-->
+<!--                    name: "胆固醇结晶1111",-->
+<!--                    normal_min: 56.749,-->
+<!--                    normal_max: 65.371,-->
+<!--                    abnormal_min: 56.749,-->
+<!--                    abnormal_max: 73.673,-->
+<!--                    reality: 64.010,-->
+<!--                    result: "正常(-)",-->
+<!--                    resultColor: "#00FF00",-->
+<!--                },-->
+<!--            ]-->
+<!--        },-->
+<!--    ]-->
 
     function draw(a, color, canvas) {
         var fontSize = document.documentElement.style.fontSize.replace("px", "");
@@ -818,8 +818,6 @@
             var canvases = subHealthListLine[i].getElementsByClassName("canvas");
             var lis = subHealthListLine[i].getElementsByTagName("li");
             var everyOne = subHealthList[i];
-            console.log(everyOne);
-            console.log(subHealthList);
             for (var j = 0; j < everyOne.list.length; j++) {
 
                 var alone = everyOne.list[j];
@@ -867,18 +865,16 @@
                     //                    box.style.height = "100%";
                     var boxTop = document.body.scrollTop;
                     box.style.top = boxTop + "px";
-                    console.log(this.index);
-                    console.log(everyOne);
-
                     box.innerHTML = '<div class="container">' +
                             '<canvas class="bigCanvas"></canvas>' +
-                            '<span class="bigName">' + subHealthList[this.idx].list[this.index].name + '</span>' +
-                            '<span class="bigResult">' + subHealthList[this.idx].list[this.index].result + '</span>' +
-                            '<span class="bigAbnormal_min">' + subHealthList[this.idx].list[this.index].abnormal_min + '</span>' +
-                            '<span class="bigNormal_min">' + subHealthList[this.idx].list[this.index].normal_min + '</span>' +
-                            '<span class="bigNormal_max">' + subHealthList[this.idx].list[this.index].normal_max + '</span>' +
-                            '<span class="bigReality">' + subHealthList[this.idx].list[this.index].reality + '</span>' +
-                            '<span class="bigAbnormal_max">' + subHealthList[this.idx].list[this.index].abnormal_max + '</span>' +
+                            '<span class="bigName">' + everyOne.list[this.index].name + '</span>' +
+
+                            '<span class="bigResult">' + everyOne.list[this.index].result + '</span>' +
+                            '<span class="bigAbnormal_min">' + everyOne.list[this.index].abnormal_min + '</span>' +
+                            '<span class="bigNormal_min">' + everyOne.list[this.index].normal_min + '</span>' +
+                            '<span class="bigNormal_max">' + everyOne.list[this.index].normal_max + '</span>' +
+                            '<span class="bigReality">' + everyOne.list[this.index].reality + '</span>' +
+                            '<span class="bigAbnormal_max">' + everyOne.list[this.index].abnormal_max + '</span>' +
                             '</div>';
                     var bigcanvas = document.getElementsByClassName("bigCanvas");
                     console.log(bigcanvas);
@@ -889,8 +885,8 @@
                     bigReality.style.right = this.bigCoord;
                     console.log(this.bigCoord);
                     //                    bigReality.style.top = bigCoord;
-                    bigReality.style.color = subHealthList[this.idx].list[this.index].resultColor;
-                    bigResult.style.color = subHealthList[this.idx].list[this.index].resultColor;
+                    bigReality.style.color = everyOne.list[this.index].resultColor;
+                    bigResult.style.color = everyOne.list[this.index].resultColor;
                     var canvas1 = bigcanvas[0];
                     canvas1.width = 4 * 2 * fontSize;
                     canvas1.height = 8.34 * 2 * fontSize;

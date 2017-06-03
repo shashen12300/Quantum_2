@@ -112,7 +112,15 @@ typedef NS_ENUM(NSInteger,SexType) {
     [self.view endEditing:YES];
     if ([CommonCore isBlankString:_nameTextField.text]||[CommonCore isBlankString:_birthDateBtn.titleLabel.text]||[CommonCore isBlankString:_statureTextField.text]||[CommonCore isBlankString:_weightTextField.text]||[CommonCore isBlankString:_photoNumberTextField.text]) {
         [self showHint:@"信息填写不完整"];
-    }else {
+    }else if ([[CommonCore getAgeDate:_birthDateBtn.titleLabel.text]isEqualToString:@"0"]) {
+        [self showHint:@"用户年龄为0，无法进行测试"];
+    }else if ([_weightTextField.text integerValue]>150) {
+        [self showHint:@"体重最大不能超过150kg"];
+    }else if ([_statureTextField.text integerValue]>250) {
+        [self showHint:@"身高最大不能超过250CM"];
+    }
+    
+    else {
         
         [self addData];
     }
