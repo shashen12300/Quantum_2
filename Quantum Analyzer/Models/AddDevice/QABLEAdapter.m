@@ -913,7 +913,17 @@ static QABLEAdapter * _sharedBLEAdapter = nil;
 /** 电压检测-人是否接触设备*/
 - (void)voltageCheck {
     NSData *data = [self dataFromHexString:@"AA"];
-    [self.activePeripheral writeValue:data forCharacteristic:[self getCurrentCharacteristic] type:CBCharacteristicWriteWithoutResponse];
+    CBCharacteristic *characteristic = [self getCurrentCharacteristic];
+
+    if (characteristic == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先通过蓝牙连接硬件设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+        [self.beginViewController stopCheck];
+
+        return;
+        
+    }
+    [self.activePeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
 }
 
 /** 开始检测*/
@@ -943,7 +953,11 @@ static QABLEAdapter * _sharedBLEAdapter = nil;
 - (void)saveCheckResult {
 
     NSData *data = [self dataFromHexString:@"FF"];
-    [self.activePeripheral writeValue:data forCharacteristic:[self getCurrentCharacteristic] type:CBCharacteristicWriteWithoutResponse];
+    CBCharacteristic *characteristic = [self getCurrentCharacteristic];
+    if (characteristic == nil) {
+        return;
+    }
+    [self.activePeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
 }
 
 - (CBCharacteristic *)getCurrentCharacteristic {

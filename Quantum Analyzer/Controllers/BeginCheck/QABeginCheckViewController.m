@@ -291,6 +291,23 @@ typedef NS_ENUM(NSInteger,Buttonype) {
     sender.selected = YES;
 }
 
+/** 停止检测*/
+- (void)stopCheck {
+    _beginBtn.selected = NO;
+    _beginBtn.backgroundColor = UIColorFromRGB(0x4DDFFE);
+    _stopBtn.backgroundColor = grayFontColor;
+    //关闭定时器
+    _buttonType = StopCheck;
+    _checkTime = 0;
+    [_timer setFireDate:[NSDate distantFuture]];
+//    [[QABLEAdapter sharedBLEAdapter] stopCheck];
+    [self.moviePlayer stop];
+    _moviePlayer.view.hidden = YES;
+    [_gifView stop];
+    [_checkTimer setFireDate:[NSDate distantFuture]];
+
+}
+
 
 /* 复位状态*/
 - (void)resetAllState {

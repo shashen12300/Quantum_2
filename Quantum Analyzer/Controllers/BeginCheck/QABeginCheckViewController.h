@@ -13,4 +13,5 @@
 
 - (void)OnReadChar:(CBCharacteristic *)characteristic;
 
+- (void)stopCheck;
 @end
